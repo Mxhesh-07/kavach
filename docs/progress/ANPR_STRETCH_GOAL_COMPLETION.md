@@ -124,4 +124,4 @@ All modules compile without syntax errors:
 4. **Watchlist Integration**: Connect to database of plates of interest for alerting
 5. **Performance Optimization**: Batch processing and GPU acceleration for OCR
 
-This stretch goal feature transforms IBVAP from a border security system into a comprehensive vehicle monitoring solution capable of recognizing license plates in real-time, addressing an critical gap in border security where vehicle-based threats require immediate identification and tracking.
+This stretch goal feature transforms KAVACH from a border security system into a comprehensive vehicle monitoring solution capable of recognizing license plates in real-time, addressing an critical gap in border security where vehicle-based threats require immediate identification and tracking.

@@ -44,7 +44,7 @@ from core.models import Alert
 from core.timeutil import fmt_ist, utc_iso
 from cv.rules import Alert as RuleAlert, severity_for
 
-log = logging.getLogger("ibvap.events")
+log = logging.getLogger("kavach.events")
 
 #: Human-facing titles. Kept server-side so the API, the log and the UI agree.
 ALERT_TITLES = {

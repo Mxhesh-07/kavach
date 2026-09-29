@@ -38,7 +38,7 @@ from core.database import SessionLocal
 from core.models import Alert, Checkpoint
 from core.timeutil import fmt_ist, utc_iso
 
-log = logging.getLogger("ibvap.integrity")
+log = logging.getLogger("kavach.integrity")
 
 #: Explicit genesis value — SHA-256 of the empty string is *not* 64 zeros, so
 #: a literal is used to make the chain's starting point unambiguous.
@@ -166,7 +166,7 @@ class IntegrityCertificate:
     checkpoints: list = field(default_factory=list)
     alert_digest: list = field(default_factory=list)
     scheme: str = "SHA-256 hash chain + Merkle checkpoints (local, non-blockchain)"
-    issued_by: str = "IBVAP Integrity Subsystem"
+    issued_by: str = "KAVACH Integrity Subsystem"
     issued_to: str = "Evidentiary Review"
     issue_timestamp: str = ""
     issue_timestamp_ist: str = ""

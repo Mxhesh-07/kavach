@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(ibvap_native LANGUAGES CXX CUDA)
+project(kavach_native LANGUAGES CXX CUDA)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -26,9 +26,9 @@ set(SOURCES
     src/bindings.cpp
 )
 
-pybind11_add_module(ibvap_native ${SOURCES})
+pybind11_add_module(kavach_native ${SOURCES})
 
-target_link_libraries(ibvap_native PRIVATE
+target_link_libraries(kavach_native PRIVATE
     ${CUDA_LIBRARIES}
     nvinfer
     nvonnxparser

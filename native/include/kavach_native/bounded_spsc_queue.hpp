@@ -6,7 +6,7 @@
 #include <optional>
 #include <new>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 #if defined(__cpp_lib_hardware_interference_size)
     using std::hardware_destructive_interference_size;
@@ -79,4 +79,4 @@ private:
     alignas(hardware_destructive_interference_size) std::atomic<size_t> tail_;
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

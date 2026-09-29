@@ -1,4 +1,4 @@
-# IBVAP PROGRESS SUMMARY
+# KAVACH PROGRESS SUMMARY
 ## Features Implemented per SIH 2026 Problem Statement Requirements
 
 ### ✅ FEATURE 1: EXPLAINABLE BORDER SECURITY AI (EB-SAI) - COMPLETED
@@ -34,7 +34,7 @@
 - Tamper detection with precise breach location and hash comparison reporting
 
 **Sample Output**:
-> "AFFIDAVIT OF DATA INTEGRITY\\nIBVAP - Intelligent Border Video Analytics Platform\\n\\nI, the undersigned, do hereby swear and affirm that:\\n\\n1. I am knowledgeable about the IBVAP system and its data integrity mechanisms.\\n\\n2. The IBVAP system employs a triple-layer tamper-evident integrity system:\\n   - Layer 1: Cryptographic hash chain linking each alert to the previous\\n   - Layer 2: Periodic blockchain anchoring every 5 minutes\\n   - Layer 3: Exportable integrity certificates for legal verification\\n\\n3. For the time period 2026-09-08T00:00:00Z to 2026-09-08T23:59:59Z:\\n   - Total alerts processed: 1247\\n   - Chain tip hash: a3f1c2e4b5d6...\\n   - Blockchain anchors generated: 288\\n   - All integrity verification checks passed\\n\\n4. The hash chain has been verified and found to be intact, indicating\\n   that no alert data has been tampered with, modified, or deleted\\n   during the specified time period.\\n\\nFurther affiant sayeth not."
+> "AFFIDAVIT OF DATA INTEGRITY\\nKAVACH - Intelligent Border Video Analytics Platform\\n\\nI, the undersigned, do hereby swear and affirm that:\\n\\n1. I am knowledgeable about the KAVACH system and its data integrity mechanisms.\\n\\n2. The KAVACH system employs a triple-layer tamper-evident integrity system:\\n   - Layer 1: Cryptographic hash chain linking each alert to the previous\\n   - Layer 2: Periodic blockchain anchoring every 5 minutes\\n   - Layer 3: Exportable integrity certificates for legal verification\\n\\n3. For the time period 2026-09-08T00:00:00Z to 2026-09-08T23:59:59Z:\\n   - Total alerts processed: 1247\\n   - Chain tip hash: a3f1c2e4b5d6...\\n   - Blockchain anchors generated: 288\\n   - All integrity verification checks passed\\n\\n4. The hash chain has been verified and found to be intact, indicating\\n   that no alert data has been tampered with, modified, or deleted\\n   during the specified time period.\\n\\nFurther affiant sayeth not."
 
 **Impact**: Solves evidentiary challenge blocking real-world AI deployment, provides court-admissible proof without centralized authorities, demonstrates sophisticated legal/compliance understanding.
 
@@ -50,7 +50,7 @@ All conceptual validations passing:
 
 ### 🏆 HACKATHON READINESS
 **Unique Value Proposition**:
-> "While other projects simply generate more alerts for overwhelmed security teams to investigate, IBVAP explains WHY alerts occur in plain language AND proves they haven't been tampered with through cryptographic evidence - transforming our system from a notification tool into a trusted decision support platform with court-admissible evidence capabilities. Furthermore, our ANPR stretch goal adds vehicle recognition capability, completing a comprehensive border security triad: person detection with explanations, integrity verification, and license plate recognition."
+> "While other projects simply generate more alerts for overwhelmed security teams to investigate, KAVACH explains WHY alerts occur in plain language AND proves they haven't been tampered with through cryptographic evidence - transforming our system from a notification tool into a trusted decision support platform with court-admissible evidence capabilities. Furthermore, our ANPR stretch goal adds vehicle recognition capability, completing a comprehensive border security triad: person detection with explanations, integrity verification, and license plate recognition."
 
 **Judging Advantages**:
 1. **Technical Innovation**: Novel explainable AI + triple-layer integrity architecture + ANPR stretch goal

@@ -16,7 +16,7 @@ from core import models
 from core.timeutil import now_utc, start_of_ist_day, fmt_ist
 from core.threat_level import compute_threat_level
 
-log = logging.getLogger("ibvap.dashboard")
+log = logging.getLogger("kavach.dashboard")
 
 
 def get_dashboard_summary(db: Session) -> dict:

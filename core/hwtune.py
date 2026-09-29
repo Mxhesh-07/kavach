@@ -1,5 +1,5 @@
 """
-Runtime hardware auto-tuning for IBVAP inference.
+Runtime hardware auto-tuning for KAVACH inference.
 
 The project's defaults were benchmarked on one host (an RTX 4060). This module
 makes the pipeline instead **adapt to the machine it is actually running on** —
@@ -34,7 +34,7 @@ from typing import Optional
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.hwtune")
+log = logging.getLogger("kavach.hwtune")
 
 #: Fields the tuner may rewrite. Anything else (TARGET_FPS, cooldown math, …)
 #: stays with the operator.

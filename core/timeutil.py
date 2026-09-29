@@ -1,5 +1,5 @@
 """
-Timezone handling for IBVAP.
+Timezone handling for KAVACH.
 
 Policy
 ------

@@ -1,5 +1,5 @@
 """
-FastAPI application — the HTTP / WebSocket layer for IBVAP.
+FastAPI application — the HTTP / WebSocket layer for KAVACH.
 
 Concurrency notes (this is where the original build's dashboard lag lived):
 
@@ -76,7 +76,7 @@ from core.timeutil import (
     fmt_ist, fmt_ist_time, ist_iso, now_ist, now_utc, start_of_ist_day, utc_iso,
 )
 
-log = logging.getLogger("ibvap.api")
+log = logging.getLogger("kavach.api")
 
 #: Filled at startup; the loop that WebSocket fan-out is scheduled onto.
 _event_loop: Optional[asyncio.AbstractEventLoop] = None
@@ -119,7 +119,7 @@ def configure_logging() -> None:
         # surveillance system to stop working. Bounded here the same way
         # evidence is bounded by the retention sweep.
         file_handler = RotatingFileHandler(
-            settings.LOG_DIR / "ibvap.log",
+            settings.LOG_DIR / "kavach.log",
             maxBytes=settings.LOG_MAX_MB * 1024 * 1024,
             backupCount=settings.LOG_BACKUP_COUNT,
             encoding="utf-8",
@@ -242,7 +242,7 @@ async def lifespan(app: FastAPI):
 
     configure_logging()
     log.info("=" * 66)
-    log.info("IBVAP %s — Intelligent Border Video Analytics Platform", settings.VERSION)
+    log.info("KAVACH %s — Intelligent Border Video Analytics Platform", settings.VERSION)
     log.info("Startup at %s", fmt_ist())
     log.info("=" * 66)
 
@@ -618,7 +618,7 @@ async def require_api_key(request: Request) -> None:
 # --------------------------------------------------------------------------- #
 
 app = FastAPI(
-    title="IBVAP — Intelligent Border Video Analytics Platform",
+    title="KAVACH — Intelligent Border Video Analytics Platform",
     description=(
         "Software-defined surveillance for existing CCTV: detection, tracking, "
         "virtual fencing, rule-based behaviour analysis, and a tamper-evident "
@@ -1542,7 +1542,7 @@ def export_alerts_pdf(
 
     # A filename that sorts chronologically and survives every filesystem:
     # no spaces, no colons, IST because every timestamp in the report is IST.
-    filename = f"ibvap-event-log-{now_ist().strftime('%Y%m%d-%H%M')}-IST.pdf"
+    filename = f"kavach-event-log-{now_ist().strftime('%Y%m%d-%H%M')}-IST.pdf"
     log.info("Event log PDF: %d of %d event(s), %d KB",
              len(alerts), total, len(pdf) // 1024)
     return Response(
@@ -2403,7 +2403,7 @@ def analysis_video(session_id: str, db: Session = Depends(get_db_session)):
             .filter(models.AnalysisSession.session_uid == session_id).first()
         )
         path = row.output_path if row else ""
-    return _serve_evidence(path, "video/mp4", f"ibvap_analysed_{session_id[:8]}.mp4")
+    return _serve_evidence(path, "video/mp4", f"kavach_analysed_{session_id[:8]}.mp4")
 
 
 @app.get("/api/analysis/{session_id}/alerts", dependencies=REQUIRE_API_KEY)
@@ -2647,7 +2647,7 @@ async def make_certificate(
         content=json.loads(export_integrity_certificate_to_json(certificate)),
         headers={
             "Content-Disposition":
-                f'attachment; filename="ibvap_integrity_{certificate.certificate_id[:8]}.json"'
+                f'attachment; filename="kavach_integrity_{certificate.certificate_id[:8]}.json"'
         },
     )
 

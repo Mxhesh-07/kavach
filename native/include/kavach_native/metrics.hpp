@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <mutex>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 struct StagePercentiles {
     float min_ms{0.0f};
@@ -37,4 +37,4 @@ private:
     std::vector<float> pipe_samples_;
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

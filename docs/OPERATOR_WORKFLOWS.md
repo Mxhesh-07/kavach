@@ -1,5 +1,5 @@
-# IBVAP Operator Workflows & Standard Operating Procedures
-**Document ID**: `IBVAP-SOP-OPS-002`  
+# KAVACH Operator Workflows & Standard Operating Procedures
+**Document ID**: `KAVACH-SOP-OPS-002`  
 **System**: Intelligent Border Video Analytics Platform (Controlled Evaluation Build)  
 **Audience**: Duty Watch Officers, Perimeter Surveillance Operators, Systems Administrators  
 **Compliance Standard**: ISO 11064 (Control Centre Ergonomics), MIL-STD-1472H (Human Engineering)
@@ -8,7 +8,7 @@
 
 ## 1. Operational Overview & Roles
 
-The IBVAP platform supports three standardized operational roles in field evaluation:
+The KAVACH platform supports three standardized operational roles in field evaluation:
 1. **Surveillance Operator (Watchstander)**: Real-time monitoring of live camera grids, keyboard-first alert triage, immediate perimeter intrusion acknowledgement, and alarm escalation.
 2. **Duty Incident Commander (Watch Officer)**: Incident lifecycle review, multi-camera correlation, forensic video playback, disposition verification, and evidence package sealing.
 3. **Systems & Security Administrator**: Camera onboarding, virtual tripwire/polygon geometry definition, NVML hardware health auditing, tamper-evident hash chain verification, and audit trail export.
@@ -105,7 +105,7 @@ A single border event (e.g., vehicle approaching perimeter, cutting fence, dismo
 
 ## 5. Camera Health & Degradation Management
 
-Surveillance cameras in border environments experience dirty lenses, power fluctuations, severed fiber, and radio interference. IBVAP mandates explicit operational states:
+Surveillance cameras in border environments experience dirty lenses, power fluctuations, severed fiber, and radio interference. KAVACH mandates explicit operational states:
 
 ```
 +---------------+--------------------------------------------------------------------------+

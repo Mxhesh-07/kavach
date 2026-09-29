@@ -213,14 +213,14 @@ def test_signature_verifies_against_the_exact_body(monkeypatch, alarm, webhook):
 
     request = recorder.received[0]
     expected = hmac.new(secret.encode(), request["body"], hashlib.sha256).hexdigest()
-    assert request["headers"]["x-ibvap-signature"] == expected
+    assert request["headers"]["x-kavach-signature"] == expected
 
 
 def test_unsigned_when_no_secret_is_configured(alarm, webhook):
     _, recorder = webhook
     alarm.trigger({"type": "alert", "data": make_alert()})
     drain(alarm)
-    assert "x-ibvap-signature" not in recorder.received[0]["headers"]
+    assert "x-kavach-signature" not in recorder.received[0]["headers"]
 
 
 def test_cooldown_collapses_repeats_from_one_camera(alarm, webhook):
@@ -340,7 +340,7 @@ def test_message_keeps_what_an_officer_needs_to_act():
     assert "CRITICAL" in message
     assert "BOP-NORTH-01" in message
     assert "FENCE CROSSED" in message
-    assert "IBVAP" in message
+    assert "KAVACH" in message
 
 
 def test_short_alert_keeps_its_description():

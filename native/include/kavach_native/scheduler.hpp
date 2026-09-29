@@ -13,7 +13,7 @@
 #include <vector>
 #include <string>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 class NativeScheduler {
 public:
@@ -44,4 +44,4 @@ private:
     std::unordered_map<std::string, BoundedSPSCQueue<FrameResult, 64>> result_queues_;
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

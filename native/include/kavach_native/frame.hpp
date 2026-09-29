@@ -5,7 +5,7 @@
 #include <string>
 #include <chrono>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 constexpr int FRAME_MAX_WIDTH = 1920;
 constexpr int FRAME_MAX_HEIGHT = 1080;
@@ -24,4 +24,4 @@ struct RawFrame {
     bool is_gpu_resident{false};
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

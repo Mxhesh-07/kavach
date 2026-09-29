@@ -1,5 +1,5 @@
 """
-Centralized InferenceScheduler for IBVAP.
+Centralized InferenceScheduler for KAVACH.
 Owns the active AI model backend, forms micro-batches with bounded wait times,
 enforces per-camera latest-job fairness, and dispatches results asynchronously.
 """
@@ -16,7 +16,7 @@ import numpy as np
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.scheduler")
+log = logging.getLogger("kavach.scheduler")
 
 
 class JobStatus(str, enum.Enum):

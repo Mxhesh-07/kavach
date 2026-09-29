@@ -6,7 +6,7 @@
 #include <atomic>
 #include <thread>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 class NativeVideoSource {
 public:
@@ -19,4 +19,4 @@ public:
 
 std::unique_ptr<NativeVideoSource> create_video_source(const std::string& uri);
 
-} // namespace ibvap_native
+} // namespace kavach_native

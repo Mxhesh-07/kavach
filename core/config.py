@@ -1,7 +1,7 @@
 """
 Application configuration.
 
-Every tunable in IBVAP lives here — detection thresholds, inference
+Every tunable in KAVACH lives here — detection thresholds, inference
 resolution, processing cadence, rule timings, evidence retention, night
 hours, upload limits.  Values are read from environment variables / ``.env``
 so an operator can retune a Border Out Post deployment without touching
@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------ #
     # Core
     # ------------------------------------------------------------------ #
-    PROJECT_NAME: str = "IBVAP"
+    PROJECT_NAME: str = "KAVACH"
     VERSION: str = "2.0.0"
     LOG_LEVEL: str = "INFO"
     #: Operational log retention. The file rotates at this size and keeps this
@@ -618,7 +618,7 @@ class Settings(BaseSettings):
     #: HTTP endpoint of an external alarm controller — IP siren, relay board,
     #: PA controller or a dispatch API. Empty disables the webhook sink.
     ALARM_WEBHOOK_URL: str = ""
-    #: Shared secret for the X-IBVAP-Signature HMAC-SHA256 header. Empty sends
+    #: Shared secret for the X-KAVACH-Signature HMAC-SHA256 header. Empty sends
     #: the trigger unsigned, which is only safe on an isolated segment.
     ALARM_WEBHOOK_SECRET: str = ""
     ALARM_WEBHOOK_TIMEOUT: float = 5.0

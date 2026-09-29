@@ -43,8 +43,8 @@ def test_docker_compose_prod_gpu_orchestration():
         data = yaml.safe_load(f)
 
     assert "services" in data
-    assert "ibvap-edge" in data["services"]
-    service = data["services"]["ibvap-edge"]
+    assert "kavach-edge" in data["services"]
+    service = data["services"]["kavach-edge"]
 
     # GPU reservations
     assert "deploy" in service
@@ -57,4 +57,4 @@ def test_docker_compose_prod_gpu_orchestration():
 
     # Persistent storage volumes
     assert "volumes" in data
-    assert "ibvap-data" in data["volumes"]
+    assert "kavach-data" in data["volumes"]

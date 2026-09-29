@@ -1,5 +1,5 @@
 """
-Rules engine — the *analytics* half of IBVAP.
+Rules engine — the *analytics* half of KAVACH.
 
 Everything in this module is **deterministic, rule-based geometry and
 timing** applied to the tracker's output.  It is not a learned behaviour
@@ -68,7 +68,7 @@ from typing import Any, Literal, Optional
 from core.config import settings
 from cv.geometry import LineGeometry, ZoneGeometry, distance, reference_point
 
-log = logging.getLogger("ibvap.cv.rules")
+log = logging.getLogger("kavach.cv.rules")
 
 AlertType = Literal[
     "entry", "exit", "enter", "zone_exit", "loiter",

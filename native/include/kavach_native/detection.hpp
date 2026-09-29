@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 constexpr int MAX_DETECTIONS_PER_FRAME = 128;
 constexpr int NUM_CLASSES = 80;
@@ -27,4 +27,4 @@ struct Detection {
     }
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

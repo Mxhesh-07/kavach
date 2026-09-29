@@ -237,10 +237,10 @@ class CustomBuildExt(build_ext):
 # ============================================================================
 
 setup(
-    name="ibvap-military-core",
+    name="kavach-military-core",
     version="0.1.0",
-    description="IBVAP Military-Grade C++ TensorRT Inference Engine",
-    author="IBVAP Team",
+    description="KAVACH Military-Grade C++ TensorRT Inference Engine",
+    author="KAVACH Team",
     ext_modules=[military_core_ext],
     cmdclass={"build_ext": CustomBuildExt},
     zip_safe=False,

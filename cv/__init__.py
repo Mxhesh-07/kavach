@@ -1,5 +1,5 @@
 """
-Computer vision package for IBVAP — detection, tracking, rules, and face recognition.
+Computer vision package for KAVACH — detection, tracking, rules, and face recognition.
 """
 from cv.detector import Detector, Detection, FrameResult
 from cv.rules import (

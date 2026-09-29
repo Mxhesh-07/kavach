@@ -1,5 +1,5 @@
-# IBVAP Information Architecture & Control Room Layout Specification
-**Document ID**: `IBVAP-SPEC-IA-003`  
+# KAVACH Information Architecture & Control Room Layout Specification
+**Document ID**: `KAVACH-SPEC-IA-003`  
 **System**: Intelligent Border Video Analytics Platform (Controlled Evaluation Build)  
 **Standard Compliance**: ISO 11064-3 (Control Centre Design), MIL-STD-1472H §5.10 (Displays)
 
@@ -7,7 +7,7 @@
 
 ## 1. Top-Level Structural Layout
 
-The IBVAP interface is structured to ensure that **video is never obscured by navigation**, critical alarms are always visible, and hardware health is monitored continuously:
+The KAVACH interface is structured to ensure that **video is never obscured by navigation**, critical alarms are always visible, and hardware health is monitored continuously:
 
 ```
 +-------------------------------------------------------------------------------------------------------------------------+

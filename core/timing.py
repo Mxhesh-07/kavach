@@ -1,5 +1,5 @@
 """
-Precise frame lifecycle timing and metrics collection for IBVAP.
+Precise frame lifecycle timing and metrics collection for KAVACH.
 Tracks every microsecond across capture, decode, preprocess, inference,
 tracking, spatial rules, and event dispatch.
 """

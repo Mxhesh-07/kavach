@@ -13,7 +13,7 @@ controller: an IP siren/relay board, a PA controller, a SIP gateway that dials
 the guard room, or an HQ dispatch API.  This is the deployable path: it needs
 no hardware on the analytics machine and works over the post's existing LAN.
 The body is signed with HMAC-SHA256 (``ALARM_WEBHOOK_SECRET``) so the
-controller can verify that a trigger really came from IBVAP — an unauthenticated
+controller can verify that a trigger really came from KAVACH — an unauthenticated
 "sound the siren" endpoint on a shared network is an obvious abuse target.
 
 **GPIO** (``ALARM_GPIO_PIN``) — a relay wired directly to a single-board host
@@ -56,14 +56,22 @@ from core.config import settings
 from core.notify import NotificationChannel, NotificationError, http_post, json_body
 from core.timeutil import fmt_ist, utc_iso
 
-log = logging.getLogger("ibvap.alarm")
+log = logging.getLogger("kavach.alarm")
 
 __all__ = ["AlarmManager", "get_alarm_manager"]
 
 #: Header carrying the HMAC-SHA256 of the exact request body.
-SIGNATURE_HEADER = "X-IBVAP-Signature"
+SIGNATURE_HEADER = "X-KAVACH-Signature"
 #: Convenience header so a controller can route without parsing the body.
-EVENT_HEADER = "X-IBVAP-Event"
+EVENT_HEADER = "X-KAVACH-Event"
+
+#: The project was IBVAP before it was renamed KAVACH. These headers are a
+#: contract with alarm controllers that were already deployed against the old
+#: name, and a controller verifying only the old header would reject every
+#: request as unsigned. Both are therefore sent, carrying identical values;
+#: once the old name is retired these can be dropped.
+LEGACY_SIGNATURE_HEADER = "X-IBVAP-Signature"
+LEGACY_EVENT_HEADER = "X-IBVAP-Event"
 
 
 class AlarmManager(NotificationChannel):
@@ -192,12 +200,12 @@ class AlarmManager(NotificationChannel):
         The JSON an alarm controller receives.
 
         Deliberately flat and self-describing: a relay board's firmware should
-        not have to understand IBVAP's schema to decide whether to sound a
+        not have to understand KAVACH's schema to decide whether to sound a
         siren.  ``action`` and ``severity`` alone are enough to act on.
         """
         return {
             "action": "trigger_alarm",
-            "source": "IBVAP",
+            "source": "KAVACH",
             "version": settings.VERSION,
             "test": bool(test),
             "alert_id": alert.get("id"),
@@ -215,16 +223,19 @@ class AlarmManager(NotificationChannel):
 
     def _fire_webhook(self, url: str, alert: dict, *, test: bool = False) -> str:
         body = json_body(self.build_payload(alert, test=test))
-        headers = {EVENT_HEADER: str(alert.get("alert_type") or "alert")}
+        event = str(alert.get("alert_type") or "alert")
+        headers = {EVENT_HEADER: event, LEGACY_EVENT_HEADER: event}
 
         secret = str(settings.ALARM_WEBHOOK_SECRET or "")
         if secret:
             # Sign the exact bytes on the wire, not a re-serialisation of the
             # payload — key order or separators differing by one character
             # would make every signature fail verification.
-            headers[SIGNATURE_HEADER] = hmac.new(
+            signature = hmac.new(
                 secret.encode("utf-8"), body, hashlib.sha256
             ).hexdigest()
+            headers[SIGNATURE_HEADER] = signature
+            headers[LEGACY_SIGNATURE_HEADER] = signature
 
         status, text = http_post(
             url, body, headers=headers, timeout=float(settings.ALARM_WEBHOOK_TIMEOUT)
@@ -333,14 +344,14 @@ class AlarmManager(NotificationChannel):
             "id": None,
             "alert_type": "test_alarm",
             "severity": "CRITICAL",
-            "title": "IBVAP TEST ALARM",
+            "title": "KAVACH TEST ALARM",
             "camera_id": None,
             "camera_name": "SYSTEM",
             "timestamp_ist": fmt_ist(),
             "timestamp": utc_iso(),
             "track_id": 0,
             "description": (
-                "Manual alarm test triggered from the IBVAP API. "
+                "Manual alarm test triggered from the KAVACH API. "
                 "No intrusion has been detected."
             ),
             "details": {"test": True},

@@ -17,7 +17,7 @@ with no extra dependency.  Uses the v5 *flow* API, because Indian TRAI/DLT
 rules require transactional SMS to be sent against a registered template
 rather than as free text.  The alert is passed into the template as named
 variables (``MESSAGE``, ``SEVERITY``, ``CAMERA``, ``TIME``), so a registered
-template such as ``IBVAP ALERT: ##SEVERITY## at ##CAMERA## ##TIME##`` works
+template such as ``KAVACH ALERT: ##SEVERITY## at ##CAMERA## ##TIME##`` works
 without code changes.
 
 Whichever provider is primary, the other is tried as a fallback when it is also
@@ -58,7 +58,7 @@ from core.config import settings
 from core.notify import NotificationChannel, NotificationError, gsm_safe, http_post, json_body
 from core.timeutil import fmt_ist, utc_iso
 
-log = logging.getLogger("ibvap.sms")
+log = logging.getLogger("kavach.sms")
 
 __all__ = ["SMSNotifier", "get_sms_notifier", "TWILIO_AVAILABLE"]
 
@@ -186,7 +186,7 @@ class SMSNotifier(NotificationChannel):
         track = alert.get("track_id") or 0
 
         full = gsm_safe(
-            f"[IBVAP ALERT] {severity}: {title}\n"
+            f"[KAVACH ALERT] {severity}: {title}\n"
             f"Camera: {camera} | Time: {stamp}\n"
             f"{description}\n"
             f"Track ID: {track}"
@@ -195,7 +195,7 @@ class SMSNotifier(NotificationChannel):
             return full
 
         compact = gsm_safe(
-            f"[IBVAP] {severity}: {title} | {camera} | {stamp} | Trk {track}"
+            f"[KAVACH] {severity}: {title} | {camera} | {stamp} | Trk {track}"
         )
         if len(compact) <= SMS_SINGLE_SEGMENT:
             return compact
@@ -396,13 +396,13 @@ class SMSNotifier(NotificationChannel):
             "id": None,
             "alert_type": "test_sms",
             "severity": "CRITICAL",
-            "title": "IBVAP TEST ALERT",
+            "title": "KAVACH TEST ALERT",
             "camera_id": None,
             "camera_name": "SYSTEM",
             "timestamp_ist": fmt_ist(),
             "timestamp": utc_iso(),
             "track_id": 0,
-            "description": "Manual SMS test from the IBVAP API. No intrusion detected.",
+            "description": "Manual SMS test from the KAVACH API. No intrusion detected.",
             "details": {"test": True},
         }
         ok, detail = self.dispatch_now(alert, test=True)

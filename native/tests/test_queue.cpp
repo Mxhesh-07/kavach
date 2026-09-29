@@ -1,8 +1,8 @@
-#include "ibvap_native/bounded_spsc_queue.hpp"
+#include "kavach_native/bounded_spsc_queue.hpp"
 #include <cassert>
 #include <iostream>
 
-using namespace ibvap_native;
+using namespace kavach_native;
 
 void test_queue_push_pop() {
     BoundedSPSCQueue<int, 4> q;

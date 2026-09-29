@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 struct FrameResult {
     std::string camera_id;
@@ -28,4 +28,4 @@ struct FrameResult {
     }
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

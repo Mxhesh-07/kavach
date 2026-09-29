@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <chrono>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 struct Track {
     int track_id{0};
@@ -32,4 +32,4 @@ private:
     std::unordered_map<int, Track> tracks_;
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

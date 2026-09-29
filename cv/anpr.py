@@ -73,7 +73,7 @@ import numpy as np
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.cv.anpr")
+log = logging.getLogger("kavach.cv.anpr")
 
 try:
     import easyocr

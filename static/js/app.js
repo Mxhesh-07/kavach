@@ -1,5 +1,5 @@
 /* ==========================================================================
-   IBVAP — Border Surveillance Command Dashboard
+   KAVACH — Border Surveillance Command Dashboard
    --------------------------------------------------------------------------
    Everything rendered here comes from the backend. There are no simulated
    detections, no fabricated statistics and no timers pretending to be events.
@@ -13,7 +13,7 @@
    ========================================================================== */
 'use strict';
 
-const IBVAP = (() => {
+const KAVACH = (() => {
 
   const MAX_FEED = 60;                  // alert cards retained in the live feed
   const PAGE_SIZE = 50;
@@ -274,7 +274,7 @@ const IBVAP = (() => {
       try {
         const note = new Notification(`${alert.icon || '⚠️'} ${alert.title || alert.alert_type}`, {
           body: `${alert.camera_name || 'Camera'} · ${alert.severity || ''}\n${alert.description || ''}`.trim(),
-          tag: `ibvap-cam-${alert.camera_id}`,   // one live card per camera
+          tag: `kavach-cam-${alert.camera_id}`,   // one live card per camera
           renotify: true,
           requireInteraction: alert.severity === 'CRITICAL',
           silent: true,                          // our own tone is the sound
@@ -325,7 +325,7 @@ const IBVAP = (() => {
 
   function persistAlerting() {
     try {
-      localStorage.setItem('ibvap.alerting', JSON.stringify({
+      localStorage.setItem('kavach.alerting', JSON.stringify({
         sound: state.alerting.sound, notify: state.alerting.notify,
       }));
     } catch { /* private window, or storage disabled — the session still works */ }
@@ -333,7 +333,7 @@ const IBVAP = (() => {
 
   function restoreAlerting() {
     try {
-      const saved = JSON.parse(localStorage.getItem('ibvap.alerting') || '{}');
+      const saved = JSON.parse(localStorage.getItem('kavach.alerting') || '{}');
       // Sound stays off until the operator clicks: the browser needs a gesture
       // before it will play anything, so restoring it "on" would be a lie.
       state.alerting.sound = false;
@@ -390,7 +390,7 @@ const IBVAP = (() => {
   // localStorage (same-origin, non-cookie) and attached to every request;
   // media/WebSocket sinks get the same key as `?api_key=` because an <img> or a
   // WebSocket cannot set a request header.
-  const KEY_STORE = 'ibvap.apiKey';
+  const KEY_STORE = 'kavach.apiKey';
 
   function getApiKey() {
     try { return localStorage.getItem(KEY_STORE) || ''; } catch { return ''; }
@@ -1660,7 +1660,7 @@ const IBVAP = (() => {
       }
       const blob = await response.blob();
       const name = (response.headers.get('Content-Disposition') || '')
-        .match(/filename="?([^"]+)"?/)?.[1] || 'ibvap-event-log.pdf';
+        .match(/filename="?([^"]+)"?/)?.[1] || 'kavach-event-log.pdf';
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -2130,7 +2130,7 @@ const IBVAP = (() => {
           ['Disk used', `${info.evidence.megabytes} MB / ${info.evidence.budget_mb} MB`],
         ]) +
         card('Runtime', [
-          ['IBVAP version', info.version],
+          ['KAVACH version', info.version],
           ['Python', info.python],
           ['OpenCV', info.opencv],
           ['Timezone', info.timezone],
@@ -2234,7 +2234,7 @@ const IBVAP = (() => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `ibvap_integrity_certificate.json`;
+      link.download = `kavach_integrity_certificate.json`;
       link.click();
       URL.revokeObjectURL(url);
       toast('Integrity certificate exported', 'ok');
@@ -2348,13 +2348,13 @@ const IBVAP = (() => {
     const target = current === 'high-contrast-light' ? '' : 'high-contrast-light';
     if (target) document.documentElement.setAttribute('data-theme', target);
     else document.documentElement.removeAttribute('data-theme');
-    try { localStorage.setItem('ibvap.theme', target); } catch { /* ignore */ }
+    try { localStorage.setItem('kavach.theme', target); } catch { /* ignore */ }
     toast(target ? 'High-contrast light theme active' : 'Standard dark C2 theme active', 'ok', 2500);
   }
 
   function restoreTheme() {
     try {
-      const saved = localStorage.getItem('ibvap.theme');
+      const saved = localStorage.getItem('kavach.theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
     } catch { /* ignore */ }
   }
@@ -2475,7 +2475,7 @@ const IBVAP = (() => {
         return;
       }
       body.innerHTML = alerts.map((a) => `
-        <tr data-id="${a.id}" class="${selectedAlertId === a.id ? 'row-selected' : ''}" onclick="IBVAP.openAlertDrawer(${a.id})" style="cursor:pointer">
+        <tr data-id="${a.id}" class="${selectedAlertId === a.id ? 'row-selected' : ''}" onclick="KAVACH.openAlertDrawer(${a.id})" style="cursor:pointer">
           <td><span class="badge ${a.severity === 'CRITICAL' ? 'badge-critical' : 'badge-caution'}">${esc(a.severity)}</span></td>
           <td class="col-time">${esc(a.timestamp_ist)}</td>
           <td>${symForSeverity(a.severity)} ${esc(a.severity)}</td>
@@ -2484,7 +2484,7 @@ const IBVAP = (() => {
           <td>${a.object_class ? `${esc(a.object_class.toUpperCase())} #${a.track_id}` : '—'}</td>
           <td>${a.has_clip ? '<span class="badge-clip">CLIP</span> ' : ''}${a.has_snapshot ? '<span class="badge">JPG</span>' : '—'}</td>
           <td>
-            <button class="btn btn-sm btn-ghost" onclick="event.stopPropagation(); IBVAP.openAlertDrawer(${a.id})">Triage</button>
+            <button class="btn btn-sm btn-ghost" onclick="event.stopPropagation(); KAVACH.openAlertDrawer(${a.id})">Triage</button>
           </td>
         </tr>
       `).join('');
@@ -2515,8 +2515,8 @@ const IBVAP = (() => {
           <td class="mono">18 ms</td>
           <td><span class="badge ${c.is_online ? 'badge-ok' : 'badge-idle'}">${c.is_online ? 'ONLINE' : 'OFFLINE'}</span></td>
           <td>
-            <button class="btn btn-sm btn-ghost" onclick="IBVAP.restartCamera(${c.id})">Restart</button>
-            <button class="btn btn-sm btn-danger" onclick="IBVAP.removeCamera(${c.id}, '${jsq(c.name)}')">Remove</button>
+            <button class="btn btn-sm btn-ghost" onclick="KAVACH.restartCamera(${c.id})">Restart</button>
+            <button class="btn btn-sm btn-danger" onclick="KAVACH.removeCamera(${c.id}, '${jsq(c.name)}')">Remove</button>
           </td>
         </tr>
       `).join('');
@@ -2582,8 +2582,8 @@ const IBVAP = (() => {
             <td><code class="mono" style="font-size:12px">${esc(paramsText)}</code></td>
             <td><span class="badge ${r.is_active ? 'badge-ok' : 'badge-idle'}">${r.is_active ? 'ARMED' : 'DISABLED'}</span></td>
             <td>
-              <button class="btn btn-sm btn-ghost" onclick="IBVAP.toggleRuleFromTable(${r.id}, ${camId})">${r.is_active ? 'Disable' : 'Enable'}</button>
-              <button class="btn btn-sm btn-danger" onclick="IBVAP.deleteRuleFromTable(${r.id}, ${camId})">Delete</button>
+              <button class="btn btn-sm btn-ghost" onclick="KAVACH.toggleRuleFromTable(${r.id}, ${camId})">${r.is_active ? 'Disable' : 'Enable'}</button>
+              <button class="btn btn-sm btn-danger" onclick="KAVACH.deleteRuleFromTable(${r.id}, ${camId})">Delete</button>
             </td>
           </tr>
         `;
@@ -2670,7 +2670,7 @@ const IBVAP = (() => {
       list.innerHTML = incidents.map((inc) => `
         <div class="incident-card ${state.incidents.selectedUid === inc.incident_uid ? 'active' : ''}"
              data-uid="${esc(inc.incident_uid)}"
-             onclick="IBVAP.selectIncident('${jsq(inc.incident_uid)}')">
+             onclick="KAVACH.selectIncident('${jsq(inc.incident_uid)}')">
           <div class="alert-top">
             <span class="sym-high">▲</span>
             <span class="alert-title mono">${esc(inc.incident_uid)}</span>
@@ -2781,7 +2781,7 @@ const IBVAP = (() => {
                   ${a.object_class ? `<span>${esc(a.object_class.toUpperCase())} #${a.track_id}</span>` : ''}
                 </div>
                 <div style="display:flex;gap:6px;margin-top:8px">
-                  <button class="btn btn-sm btn-ghost" onclick="IBVAP.openAlertDrawer(${a.id})">Inspect Alert</button>
+                  <button class="btn btn-sm btn-ghost" onclick="KAVACH.openAlertDrawer(${a.id})">Inspect Alert</button>
                   ${a.plate ? `<span class="plate-chip">${esc(a.plate)}</span>` : ''}
                 </div>
               </div>
@@ -2810,10 +2810,10 @@ const IBVAP = (() => {
 
         <div class="inc-controls-strip">
           <span style="font-size:12px;font-weight:700;color:var(--color-text-secondary);text-transform:uppercase">Incident Workflow:</span>
-          ${inc.status !== 'ESCALATED' && inc.status !== 'CLOSED' ? `<button class="btn btn-sm btn-ghost" onclick="IBVAP.updateIncidentStatus('${jsq(inc.incident_uid)}', 'ESCALATED')">Escalate (QRT)</button>` : ''}
-          ${inc.status !== 'RESOLVED' && inc.status !== 'CLOSED' ? `<button class="btn btn-sm btn-ghost" onclick="IBVAP.updateIncidentStatus('${jsq(inc.incident_uid)}', 'RESOLVED')">Mark Resolved</button>` : ''}
-          ${inc.status !== 'CLOSED' ? `<button class="btn btn-sm btn-danger" onclick="IBVAP.updateIncidentStatus('${jsq(inc.incident_uid)}', 'CLOSED')">Close Incident</button>`
-            : `<button class="btn btn-sm btn-primary" onclick="IBVAP.updateIncidentStatus('${jsq(inc.incident_uid)}', 'OPEN')">Re-Open Incident</button>`}
+          ${inc.status !== 'ESCALATED' && inc.status !== 'CLOSED' ? `<button class="btn btn-sm btn-ghost" onclick="KAVACH.updateIncidentStatus('${jsq(inc.incident_uid)}', 'ESCALATED')">Escalate (QRT)</button>` : ''}
+          ${inc.status !== 'RESOLVED' && inc.status !== 'CLOSED' ? `<button class="btn btn-sm btn-ghost" onclick="KAVACH.updateIncidentStatus('${jsq(inc.incident_uid)}', 'RESOLVED')">Mark Resolved</button>` : ''}
+          ${inc.status !== 'CLOSED' ? `<button class="btn btn-sm btn-danger" onclick="KAVACH.updateIncidentStatus('${jsq(inc.incident_uid)}', 'CLOSED')">Close Incident</button>`
+            : `<button class="btn btn-sm btn-primary" onclick="KAVACH.updateIncidentStatus('${jsq(inc.incident_uid)}', 'OPEN')">Re-Open Incident</button>`}
         </div>
 
         <div class="inc-section">

@@ -40,7 +40,7 @@ def test_hashchain_integrity_and_tamper_detection():
 
 def test_hmac_evidence_signature():
     """Verify HMAC-SHA256 signature verification on evidence payloads."""
-    secret_key = b"ibvap_secure_airgap_secret_key_2026"
+    secret_key = b"kavach_secure_airgap_secret_key_2026"
     evidence_payload = b"MP4_VIDEO_FRAME_BYTES_SIMULATION_12345"
 
     # Sign

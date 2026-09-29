@@ -1,5 +1,5 @@
-# IBVAP UI Component Inventory & Design System Tokens
-**Document ID**: `IBVAP-SPEC-DYS-004`  
+# KAVACH UI Component Inventory & Design System Tokens
+**Document ID**: `KAVACH-SPEC-DYS-004`  
 **System**: Intelligent Border Video Analytics Platform (Controlled Evaluation Build)  
 **Standard Compliance**: WCAG 2.2 Level AA, ISO 9241-303 (Electronic Visual Displays), WAI-ARIA 1.2
 

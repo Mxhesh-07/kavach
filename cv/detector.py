@@ -35,7 +35,7 @@ import numpy as np
 from core import hwtune
 from core.config import settings
 
-log = logging.getLogger("ibvap.cv.detector")
+log = logging.getLogger("kavach.cv.detector")
 
 #: COCO class ids that map onto border-surveillance categories.
 PERSON_CLASSES = {0}

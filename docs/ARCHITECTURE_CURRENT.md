@@ -1,7 +1,7 @@
-# IBVAP Current Architecture Document (Phase 0 Audit)
+# KAVACH Current Architecture Document (Phase 0 Audit)
 
 ## 1. System Overview
-The Intelligent Border Video Analytics Platform (IBVAP) is an edge-native tactical video analytics system designed for border defense, perimeter security, and checkpoint monitoring. It runs on tactical edge devices (e.g., NVIDIA RTX laptops, edge workstations) to process multi-stream high-definition video feeds in real-time.
+The Intelligent Border Video Analytics Platform (KAVACH) is an edge-native tactical video analytics system designed for border defense, perimeter security, and checkpoint monitoring. It runs on tactical edge devices (e.g., NVIDIA RTX laptops, edge workstations) to process multi-stream high-definition video feeds in real-time.
 
 ---
 

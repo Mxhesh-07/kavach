@@ -502,7 +502,7 @@ def main() -> int:
         print("No footage found. Pass --clip <file>.")
         return 1
 
-    print("IBVAP capability audit — measured against the official problem statement")
+    print("KAVACH capability audit — measured against the official problem statement")
     print(f"footage: {len(clips)} clip(s), {args.seconds:.0f}s each\n")
 
     audit = Audit()

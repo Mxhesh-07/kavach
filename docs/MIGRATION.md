@@ -1,4 +1,4 @@
-# IBVAP Migration Guide: PyTorch to Native C++20 / TensorRT
+# KAVACH Migration Guide: PyTorch to Native C++20 / TensorRT
 
 ## 1. Building the Native Extension
 ```bash

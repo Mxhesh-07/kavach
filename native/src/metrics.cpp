@@ -1,8 +1,8 @@
-#include "ibvap_native/metrics.hpp"
+#include "kavach_native/metrics.hpp"
 #include <numeric>
 #include <cmath>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 void NativeMetrics::record_inference(float ms) {
     std::lock_guard<std::mutex> lock(mtx_);
@@ -38,4 +38,4 @@ StagePercentiles NativeMetrics::get_pipeline_percentiles() {
     return compute(pipe_samples_);
 }
 
-} // namespace ibvap_native
+} // namespace kavach_native

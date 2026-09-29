@@ -3,7 +3,7 @@
 #include <NvInfer.h>
 #include <iostream>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 class TRTLogger : public nvinfer1::ILogger {
 public:
@@ -19,4 +19,4 @@ inline TRTLogger& get_trt_logger() {
     return logger;
 }
 
-} // namespace ibvap_native
+} // namespace kavach_native

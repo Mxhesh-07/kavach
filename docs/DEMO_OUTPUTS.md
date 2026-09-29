@@ -1,7 +1,7 @@
-# IBVAP Demonstration Outputs
+# KAVACH Demonstration Outputs
 ## What the System Produces When Processing Sample Video
 
-This directory contains sample outputs showing exactly what a user would see when running IBVAP with a real video input and all features (EB-SAI, Triple-Layer Integrity, ANPR) enabled.
+This directory contains sample outputs showing exactly what a user would see when running KAVACH with a real video input and all features (EB-SAI, Triple-Layer Integrity, ANPR) enabled.
 
 ## Directory Structure
 ```
@@ -81,13 +81,13 @@ DEMO_OUTPUTS/
 ### Integrity Certificate (Legal Affidavit Format)
 ```
 AFFIDAVIT OF DATA INTEGRITY
-IBVAP - Intelligent Border Video Analytics Platform
+KAVACH - Intelligent Border Video Analytics Platform
 
 I, the undersigned, do hereby swear and affirm that:
 
-1. I am knowledgeable about the IBVAP system and its data integrity mechanisms.
+1. I am knowledgeable about the KAVACH system and its data integrity mechanisms.
 
-2. The IBVAP system employs a triple-layer tamper-evident integrity system:
+2. The KAVACH system employs a triple-layer tamper-evident integrity system:
    - Layer 1: Cryptographic hash chain linking each alert to the previous
    - Layer 2: Periodic blockchain anchoring every 5 minutes using Merkle trees
    - Layer 3: Exportable integrity certificates for legal verification
@@ -184,7 +184,7 @@ Real-time alerts pushed to connected clients:
 
 ## How to Experience This in Real Deployment
 
-When a user runs IBVAP with a sample video:
+When a user runs KAVACH with a sample video:
 
 1. **Start System**: `python3 -m uvicorn api.main:app --host 0.0.0.0 --port 8000`
 2. **Configure Video**: Set `DEFAULT_CAMERA_URL=/path/to/sample/video.mp4` in `.env`
@@ -195,4 +195,4 @@ When a user runs IBVAP with a sample video:
 7. **Test ANPR**: Use `http://localhost:8000/api/anpr/test/0` 
 8. **Review Evidence**: Check generated files in `/alerts/` and `/clips/` directories
 
-All outputs shown above are exactly what users would see when running the fully deployed IBVAP system with real video input and all features (EB-SAI explanations, triple-layer integrity, ANPR stretch goal) working together in real-time.
+All outputs shown above are exactly what users would see when running the fully deployed KAVACH system with real video input and all features (EB-SAI explanations, triple-layer integrity, ANPR stretch goal) working together in real-time.

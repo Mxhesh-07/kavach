@@ -1,8 +1,8 @@
-#include "ibvap_native/frame.hpp"
+#include "kavach_native/frame.hpp"
 #include <cassert>
 #include <iostream>
 
-using namespace ibvap_native;
+using namespace kavach_native;
 
 int main() {
     RawFrame frame;

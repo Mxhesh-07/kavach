@@ -1,7 +1,7 @@
-# IBVAP Target Production Architecture (C++20/CUDA/TensorRT Pipeline)
+# KAVACH Target Production Architecture (C++20/CUDA/TensorRT Pipeline)
 
 ## 1. System Overview & Latency Separation
-IBVAP separates the high-frequency critical path (ingestion, preprocessing, inference, spatial tracking, rule evaluation) from lower-frequency async tasks (database logging, notification dispatches, operator preview rendering).
+KAVACH separates the high-frequency critical path (ingestion, preprocessing, inference, spatial tracking, rule evaluation) from lower-frequency async tasks (database logging, notification dispatches, operator preview rendering).
 
 ```
    [Camera Stream 1..4] (RTSP / USB / File)

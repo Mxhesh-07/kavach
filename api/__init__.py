@@ -1,5 +1,5 @@
 """
-IBVAP API package — FastAPI application.
+KAVACH API package — FastAPI application.
 """
 from api.main import app
 

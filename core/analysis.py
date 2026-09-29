@@ -38,7 +38,7 @@ from core.models import AnalysisSession, Camera
 from core.timeutil import fmt_ist, utc_iso
 from core.video_source import FileSource, probe_video
 
-log = logging.getLogger("ibvap.analysis")
+log = logging.getLogger("kavach.analysis")
 
 _FOURCC = getattr(cv2, "VideoWriter_fourcc", None) or cv2.VideoWriter.fourcc
 

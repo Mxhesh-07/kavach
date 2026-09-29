@@ -1,5 +1,5 @@
 """
-IBVAP backend selector and fallback coordinator.
+KAVACH backend selector and fallback coordinator.
 Routes inference between Native C++20/CUDA TensorRT engine and PyTorch/Ultralytics fallback.
 """
 import os
@@ -23,18 +23,25 @@ class BackendDetector:
         # Try loading C++ native engine if available
         if os.path.exists(self.engine_path):
             try:
-                import ibvap_native
+                # The extension was renamed ibvap_native -> kavach_native with
+                # the project rename. A deployment that built the engine before
+                # the rename still has the old .so on disk, so fall back to it
+                # rather than reporting a missing engine that is present.
+                try:
+                    import kavach_native
+                except ImportError:
+                    import ibvap_native as kavach_native
                 # The pybind module historically exposed only TensorRTEngine /
                 # NativeScheduler, with no synchronous ``detect()`` binding, so
-                # an ``ibvap_native.Engine(...).detect(...)`` call could never
+                # an ``kavach_native.Engine(...).detect(...)`` call could never
                 # work and this branch silently claimed a native backend it
                 # could not drive (then fell through on AttributeError). Require
                 # a detect()-capable entry point up front instead of assuming it.
-                engine_api = getattr(ibvap_native, "Engine", None)
+                engine_api = getattr(kavach_native, "Engine", None)
                 detect_fn = getattr(engine_api, "detect", None) if engine_api else None
                 if not engine_api or not detect_fn:
                     raise ImportError(
-                        "ibvap_native has no synchronous detect() binding"
+                        "kavach_native has no synchronous detect() binding"
                     )
                 logger.info(f"Loading native TensorRT engine from {self.engine_path}")
                 self._native_engine = engine_api(self.engine_path)

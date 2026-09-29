@@ -19,7 +19,7 @@ import numpy as np
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.smoke")
+log = logging.getLogger("kavach.smoke")
 
 
 @dataclass

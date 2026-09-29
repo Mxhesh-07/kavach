@@ -2,7 +2,7 @@
 ## Status: FULLY IMPLEMENTED & PRODUCTION READY
 
 ### 🎯 Feature Overview
-The **Triple-Layer Tamper-Evident Integrity System** provides cryptographic proof of data integrity for IBVAP alerts, transforming the system from a simple detection tool into a court-admissible evidence platform.
+The **Triple-Layer Tamper-Evident Integrity System** provides cryptographic proof of data integrity for KAVACH alerts, transforming the system from a simple detection tool into a court-admissible evidence platform.
 
 ### 🔧 What Was Implemented
 
@@ -139,7 +139,7 @@ class IntegrityCertificate:
 - ✅ **Systems Thinking**: Complete solution from crypto to legal presentation
 
 **Competitive Advantages Over Other Projects**:
-| Feature | Typical Projects | IBVAP Triple-Layer System |
+| Feature | Typical Projects | KAVACH Triple-Layer System |
 |---------|------------------|---------------------------|
 | Integrity | Basic hash chain (if any) | Three-layer defense-in-depth |
 | Tamper Detection | Detects modification | Prevents undetected tampering |
@@ -148,12 +148,12 @@ class IntegrityCertificate:
 | Implementation | Theoretical concept | Production-ready implementation |
 
 **Judging Narrative Ready**:
-> "While other projects mention hash chains as an afterthought, IBVAP delivers a complete triple-layer integrity system that transforms security alerts into court-admissible evidence. Our Layer 1 hash chain detects tampering, Layer 2 blockchain anchoring provides distributed trust, and Layer 3 exportable certificates deliver legal-ready documentation - all working automatically in the background. This isn't theoretical blockchain; it's practical cryptographic security that solves the evidentiary challenge blocking real-world AI deployment in security contexts."
+> "While other projects mention hash chains as an afterthought, KAVACH delivers a complete triple-layer integrity system that transforms security alerts into court-admissible evidence. Our Layer 1 hash chain detects tampering, Layer 2 blockchain anchoring provides distributed trust, and Layer 3 exportable certificates deliver legal-ready documentation - all working automatically in the background. This isn't theoretical blockchain; it's practical cryptographic security that solves the evidentiary challenge blocking real-world AI deployment in security contexts."
 
 ### 🚀 Deployment & Usage
 
 **Live System Ready**:
-1. Start IBVAP: `python3 api/main.py`
+1. Start KAVACH: `python3 api/main.py`
 2. System automatically generates blockchain anchors in background
 3. Generate certificates via API:
    ```bash

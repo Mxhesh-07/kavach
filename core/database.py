@@ -24,7 +24,7 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.db")
+log = logging.getLogger("kavach.db")
 
 _is_sqlite = settings.DATABASE_URL.startswith("sqlite")
 

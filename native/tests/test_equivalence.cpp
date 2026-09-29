@@ -1,9 +1,9 @@
-#include "ibvap_native/detection.hpp"
-#include "ibvap_native/result.hpp"
+#include "kavach_native/detection.hpp"
+#include "kavach_native/result.hpp"
 #include <cassert>
 #include <iostream>
 
-using namespace ibvap_native;
+using namespace kavach_native;
 
 int main() {
     FrameResult res;

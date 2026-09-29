@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-IBVAP Production Operator Showcase & Interactive Performance Dashboard.
+KAVACH Production Operator Showcase & Interactive Performance Dashboard.
 
 Demonstrates end-to-end mission-critical capabilities:
 1. Multi-camera concurrent ingestion (simulated multi-sector border surveillance)
@@ -133,7 +133,7 @@ class OperatorShowcase:
         self.running = False
 
         # Initialize subsystems
-        print("[+] Initializing IBVAP Subsystems...")
+        print("[+] Initializing KAVACH Subsystems...")
         self.detector = BackendDetector(model_path="yolo11s.pt")
         self.governor = ThermalGovernor.get()
         self.watchdog = PipelineWatchdog.get()
@@ -312,7 +312,7 @@ class OperatorShowcase:
         sys.stdout.write("\033[H\033[J")
         out = []
         out.append("==========================================================================================")
-        out.append("       IBVAP OPERATOR SHOWCASE — REAL-TIME BORDER SURVEILLANCE & PERFORMANCE HARNESS      ")
+        out.append("       KAVACH OPERATOR SHOWCASE — REAL-TIME BORDER SURVEILLANCE & PERFORMANCE HARNESS      ")
         out.append("==========================================================================================")
         out.append(f" Status: ACTIVE | Backend: {self.detector.backend_type.upper()} | Channels: {self.num_cameras} Streams | Uptime: {elapsed:.1f}s")
         out.append("------------------------------------------------------------------------------------------")
@@ -379,7 +379,7 @@ class OperatorShowcase:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="IBVAP Operator Performance Showcase")
+    parser = argparse.ArgumentParser(description="KAVACH Operator Performance Showcase")
     parser.add_argument("--cameras", type=int, default=4, help="Number of concurrent camera streams (1-4)")
     parser.add_argument("--batch-size", type=int, default=4, help="Scheduler micro-batch size")
     parser.add_argument("--duration", type=float, default=None, help="Execution duration in seconds (optional)")
@@ -400,7 +400,7 @@ def main() -> int:
     signal.signal(signal.SIGINT, _sig_handler)
     signal.signal(signal.SIGTERM, _sig_handler)
 
-    print(f"[+] Starting IBVAP Showcase on {args.cameras} camera feeds...")
+    print(f"[+] Starting KAVACH Showcase on {args.cameras} camera feeds...")
     report = showcase.run_loop(duration_sec=args.duration)
 
     print("\n==========================================================")

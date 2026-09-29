@@ -1,5 +1,5 @@
-# IBVAP User Interface & Human Factors Forensic Audit
-**Document ID**: `IBVAP-AUD-UI-001`  
+# KAVACH User Interface & Human Factors Forensic Audit
+**Document ID**: `KAVACH-AUD-UI-001`  
 **System**: Intelligent Border Video Analytics Platform (Controlled Evaluation Build)  
 **Evaluator**: Principal Product Designer, Human Factors & Frontend Architecture Team  
 **Evaluation Scope**: `dashboard/index.html`, `static/css/style.css`, `static/js/app.js`, API & WebSocket Interfaces  
@@ -9,7 +9,7 @@
 
 ## 1. Executive Summary
 
-This forensic audit evaluates the operational readiness and human-factors ergonomics of the IBVAP WebUI. While the underlying backend pipeline (micro-batching scheduler, dynamic fallback, cryptographic hash chaining, and NVML telemetry) exhibits strong determinism and resilience, the existing operator dashboard displays severe characteristics of a **hackathon-style demonstration interface** rather than a mission-critical, control-room-ready operational tool.
+This forensic audit evaluates the operational readiness and human-factors ergonomics of the KAVACH WebUI. While the underlying backend pipeline (micro-batching scheduler, dynamic fallback, cryptographic hash chaining, and NVML telemetry) exhibits strong determinism and resilience, the existing operator dashboard displays severe characteristics of a **hackathon-style demonstration interface** rather than a mission-critical, control-room-ready operational tool.
 
 Critical deficiencies identified include:
 1. **Visual Noise & Arbitrary Styling**: Decorative CSS gradients, glowing radial neon box-shadows, emoji icons in system headers and feeds, and inconsistent border-radius definitions.

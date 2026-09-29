@@ -1,16 +1,16 @@
 version: "3.9"
 
 # ==============================================================================
-# IBVAP Production Orchestration Stack — NVIDIA GPU Accelerated
+# KAVACH Production Orchestration Stack — NVIDIA GPU Accelerated
 # ==============================================================================
 
 services:
-  ibvap-edge:
+  kavach-edge:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    container_name: ibvap-edge-node
-    image: ibvap:production-gpu
+    container_name: kavach-edge-node
+    image: kavach:production-gpu
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -24,7 +24,7 @@ services:
       - INFERENCE_BATCH_TIMEOUT_MS=2.0
     volumes:
       # Persistent forensic alert data & evidence retention
-      - ibvap-data:/app/data
+      - kavach-data:/app/data
       - ./alerts:/app/alerts
       - ./clips:/app/clips
       - ./videos:/app/videos
@@ -43,13 +43,13 @@ services:
       retries: 3
       start_period: 15s
     networks:
-      - ibvap-edge-net
+      - kavach-edge-net
 
 volumes:
-  ibvap-data:
-    name: ibvap-prod-data
+  kavach-data:
+    name: kavach-prod-data
 
 networks:
-  ibvap-edge-net:
-    name: ibvap-edge-net
+  kavach-edge-net:
+    name: kavach-edge-net
     driver: bridge

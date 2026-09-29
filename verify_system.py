@@ -1,5 +1,5 @@
 """
-IBVAP end-to-end acceptance test against a running server.
+KAVACH end-to-end acceptance test against a running server.
 
 Exercises the real HTTP/WebSocket surface — no mocks, no stubs. Every check
 either passes against the live system or is reported as a failure.
@@ -38,7 +38,7 @@ def get(path, timeout=30):
 
 
 def post(path, fields=None, files=None, method="POST", timeout=300):
-    boundary = "----ibvap-test-boundary"
+    boundary = "----kavach-test-boundary"
     body = b""
     for k, v in (fields or {}).items():
         body += (f"--{boundary}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n\r\n"
@@ -73,7 +73,7 @@ def delete(path):
 
 
 print("\n" + "=" * 74)
-print("  IBVAP END-TO-END ACCEPTANCE TEST")
+print("  KAVACH END-TO-END ACCEPTANCE TEST")
 print("=" * 74)
 
 # ---------------------------------------------------------------- 1. health
@@ -506,9 +506,11 @@ if nstatus == 200:
 
     # Firing these for real means sounding a siren at the post and spending a
     # billed SMS, so an armed channel is NOT triggered by a routine acceptance
-    # run. Set IBVAP_VERIFY_FIRE_ALARM=1 when commissioning, which is when you
-    # actually want the siren to go off.
-    fire = os.environ.get("IBVAP_VERIFY_FIRE_ALARM", "").strip().lower() in ("1", "true", "yes")
+    # run. Set KAVACH_VERIFY_FIRE_ALARM=1 when commissioning, which is when you
+    # actually want the siren to go off. The pre-rename IBVAP_ name is still
+    # honoured so an existing commissioning runbook keeps working.
+    fire = (os.environ.get("KAVACH_VERIFY_FIRE_ALARM")
+            or os.environ.get("IBVAP_VERIFY_FIRE_ALARM", "")).strip().lower() in ("1", "true", "yes")
     for path, st in (("alarm", alarm_st), ("sms", sms_st)):
         if not (st["enabled"] and st["configured"]):
             # The test hook must refuse clearly rather than report success for
@@ -523,7 +525,7 @@ if nstatus == 200:
                   body.get("error", "")[:70] or body.get("reference", ""))
         else:
             skip(f"{path}: live delivery",
-                 "channel is armed — set IBVAP_VERIFY_FIRE_ALARM=1 to really fire it")
+                 "channel is armed — set KAVACH_VERIFY_FIRE_ALARM=1 to really fire it")
 
     escalating = notif.get("escalating", [])
     if escalating:

@@ -1,4 +1,4 @@
-# IBVAP Performance Audit & Latency Breakdown (Phase 0 Audit)
+# KAVACH Performance Audit & Latency Breakdown (Phase 0 Audit)
 
 ## 1. Latency Measurement Boundaries
 

@@ -1,4 +1,4 @@
-# IBVAP Documentation
+# KAVACH Documentation
 
 Supplementary documentation for the **Intelligent Border Video Analytics Platform**.
 See the repository root [`README.md`](../README.md) for the overview, quick start, and API reference.

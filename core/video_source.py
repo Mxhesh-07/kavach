@@ -34,7 +34,7 @@ import numpy as np
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.source")
+log = logging.getLogger("kavach.source")
 
 
 @dataclass

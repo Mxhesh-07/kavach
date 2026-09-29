@@ -1,8 +1,8 @@
-#include "ibvap_native/detection.hpp"
+#include "kavach_native/detection.hpp"
 #include <cassert>
 #include <iostream>
 
-using namespace ibvap_native;
+using namespace kavach_native;
 
 int main() {
     Detection det;

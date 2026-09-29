@@ -1,4 +1,4 @@
-# IBVAP Security Model & Integrity Safeguards
+# KAVACH Security Model & Integrity Safeguards
 
 ## 1. Threat Vectors & Mitigations
 - **Video Feed Tampering / Man-in-the-Middle**: RTSPS (TLS 1.3) ingestion encryption and SHA-256 frame hash chaining (`core/hashchain.py`).

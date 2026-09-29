@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from core import models
 from core.evidence import is_safe_evidence_path
 
-log = logging.getLogger("ibvap.media")
+log = logging.getLogger("kavach.media")
 
 
 def list_media_files(

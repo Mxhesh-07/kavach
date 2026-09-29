@@ -1,8 +1,8 @@
-#include "ibvap_native/scheduler.hpp"
+#include "kavach_native/scheduler.hpp"
 #include <cassert>
 #include <iostream>
 
-using namespace ibvap_native;
+using namespace kavach_native;
 
 int main() {
     auto engine = std::make_shared<TensorRTEngine>();

@@ -20,7 +20,7 @@ from core.database import engine
 from core.evidence import measure_evidence_usage
 from core.timeutil import fmt_ist
 
-log = logging.getLogger("ibvap.health")
+log = logging.getLogger("kavach.health")
 
 
 def _probe_system_metrics() -> dict:

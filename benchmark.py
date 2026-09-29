@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-IBVAP performance benchmark.
+KAVACH performance benchmark.
 
 Measures the *real* analytics pipeline — capture, preprocess, YOLO inference,
 ByteTrack, rules engine, overlay, JPEG encode — at 1, 2 and 4 concurrent
@@ -210,7 +210,7 @@ def run_case(stream_count: int, video: Path, duration: float, rules: list) -> di
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="IBVAP performance benchmark")
+    parser = argparse.ArgumentParser(description="KAVACH performance benchmark")
     parser.add_argument("--video", default="samples/sample_border_scenario.mp4")
     parser.add_argument("--seconds", type=float, default=30.0,
                         help="measurement window per case")
@@ -231,7 +231,7 @@ def main() -> int:
         return 1
 
     print("=" * 78)
-    print("  IBVAP PERFORMANCE BENCHMARK")
+    print("  KAVACH PERFORMANCE BENCHMARK")
     print("=" * 78)
 
     hw = hardware_report()

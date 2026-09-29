@@ -1,5 +1,5 @@
 {
-  "architecture": "ibvap_native_c++20_cuda_trt",
+  "architecture": "kavach_native_c++20_cuda_trt",
   "multi_stream_4x": {
     "aggregate_fps": 412.8,
     "p50_decoded_to_rule_ms": 7.42,

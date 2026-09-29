@@ -1,4 +1,4 @@
-# IBVAP — Intelligent Border Video Analytics Platform
+# KAVACH — Intelligent Border Video Analytics Platform
 # ---------------------------------------------------------------------------
 # Core runtime. Install with:
 #     pip install -r requirements.txt
@@ -13,7 +13,7 @@
 #
 # torchvision must come from the same CUDA index as torch — a CPU torchvision
 # paired with a CUDA torch fails at NMS with "torchvision::nms not implemented
-# for CUDA". IBVAP detects that at start-up and falls back to CPU rather than
+# for CUDA". KAVACH detects that at start-up and falls back to CPU rather than
 # crashing, and /api/system/info reports which device is really in use.
 # ---------------------------------------------------------------------------
 

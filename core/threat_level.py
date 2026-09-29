@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 from core import models
 from core.timeutil import now_utc
 
-log = logging.getLogger("ibvap.threat")
+log = logging.getLogger("kavach.threat")
 
 
 def compute_threat_level(db: Session) -> dict:

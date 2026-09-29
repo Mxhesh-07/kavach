@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-IBVAP CLI — database, cameras, rules, integrity and server management.
+KAVACH CLI — database, cameras, rules, integrity and server management.
 
     python manage.py init                 create tables
     python manage.py seed                 seed the demo camera + tripwire
@@ -594,7 +594,7 @@ def cmd_run(args) -> int:
     elif args.no_autostart:
         print("Auto-start disabled — registered cameras stay registered but "
               "are not brought up.")
-    print(f"IBVAP {settings.VERSION} — dashboard at http://{args.host}:{args.port}/dashboard")
+    print(f"KAVACH {settings.VERSION} — dashboard at http://{args.host}:{args.port}/dashboard")
     uvicorn.run("api.main:app", host=args.host, port=args.port,
                 reload=args.reload, log_level="info")
     return 0
@@ -655,7 +655,7 @@ def cmd_prune(args) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(
         prog="manage.py",
-        description="IBVAP management CLI",
+        description="KAVACH management CLI",
         epilog=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 class TensorRTEngine {
 public:
@@ -55,4 +55,4 @@ private:
     std::string output_tensor_name_{"output0"};
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

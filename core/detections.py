@@ -51,7 +51,7 @@ from core.database import SessionLocal
 from core.models import ANPRDetection, FaceDetection
 from core.timeutil import fmt_ist, utc_iso
 
-log = logging.getLogger("ibvap.detections")
+log = logging.getLogger("kavach.detections")
 
 #: Sub-tree of the evidence root for each kind of artefact.
 KIND_ANPR = "anpr"

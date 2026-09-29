@@ -1,9 +1,9 @@
-# What Makes IBVAP Unique: Award-Winning Features for SIH 2026
+# What Makes KAVACH Unique: Award-Winning Features for SIH 2026
 
 ## 🏆 Core Differentiators That Will Win the Hackathon
 
 ### 1. **Explainable Border Security AI** (EB-SAI)
-Unlike competing projects that provide black-box alerts, IBVAP generates **natural language explanations** for every detection:
+Unlike competing projects that provide black-box alerts, KAVACH generates **natural language explanations** for every detection:
 
 - **Before**: "ENTRY ALERT: Confidence 0.87"
 - **After**: "Subject (person) detected crossing perimeter boundary from exterior to interior with 87% confidence. Movement vector indicates intentional approach despite low-light conditions. Track ID #42 maintained across 15 frames. Behavioral analysis shows sustained approach velocity consistent with border crossing intent."
@@ -15,7 +15,7 @@ Unlike competing projects that provide black-box alerts, IBVAP generates **natur
 - Demonstrates sophisticated AI understanding beyond simple detection
 
 ### 2. **Triple-Layer Tamper-Evident Integrity** (Fully Implemented)
-IBVAP implements a **complete, production-ready integrity system** that goes far beyond basic hash chains:
+KAVACH implements a **complete, production-ready integrity system** that goes far beyond basic hash chains:
 
 - **Layer 1**: Per-alert SHA-256 hash chain - Cryptographic linking of each alert to the previous
 - **Layer 2**: Periodic blockchain anchoring - Automatic Merkle root anchoring to distributed ledger every 5 minutes  
@@ -35,7 +35,7 @@ IBVAP implements a **complete, production-ready integrity system** that goes far
 - Unique combination not seen in competing projects
 
 ### 3. **Multi-Camera Fusion Tracking**
-While others track objects per camera, IBVAP fuses data across cameras:
+While others track objects per camera, KAVACH fuses data across cameras:
 
 - Eliminates blind spots between camera fields
 - Provides continuous subject tracking across handoff zones
@@ -49,7 +49,7 @@ While others track objects per camera, IBVAP fuses data across cameras:
 - Represents a significant technical advancement over baseline
 
 ### 4. **Dynamic Threat Assessment Engine**
-IBVAP doesn't just detect - it **intelligently assesses** and **recommends**:
+KAVACH doesn't just detect - it **intelligently assesses** and **recommends**:
 
 - Multi-factor threat scoring (alert type, confidence, time, behavior)
 - Automated response recommendations based on threat level
@@ -63,7 +63,7 @@ IBVAP doesn't just detect - it **intelligently assesses** and **recommends**:
 - Provides immediate tactical value to end users
 
 ### 5. **Production-Readiness Focus**
-While others deliver fragile demos, IBVAP is built for deployment:
+While others deliver fragile demos, KAVACH is built for deployment:
 
 - **Docker-optimized** with multi-stage builds and security hardening
 - **Comprehensive health checks** and monitoring endpoints
@@ -116,7 +116,7 @@ Every technical feature is paired with presentation excellence:
 ### The 3-Minute Narrative That Wins
 > "Current border surveillance systems generate thousands of alerts that security teams must manually investigate - wasting precious time and risking missed threats. Other AI projects simply add more alerts to this overload. 
 > 
-> IBVAP is fundamentally different. We don't just detect border crossings - we **understand** them. Our Explainable AI tells operators exactly WHY an alert was triggered in plain language, enabling instant threat assessment.
+> KAVACH is fundamentally different. We don't just detect border crossings - we **understand** them. Our Explainable AI tells operators exactly WHY an alert was triggered in plain language, enabling instant threat assessment.
 > 
 > More importantly, we solve the evidentiary problem that keeps AI out of courtrooms. Every alert is cryptographically anchored, first to our tamper-evident hash chain, then periodically to a public blockchain, creating court-admissible proof that hasn't been altered.
 > 
@@ -150,7 +150,7 @@ A: "We designed with direct input from operational constraints: low-power edge d
 
 ## 🏅 Why This Wins Against Typical Hackathon Projects
 
-| Typical Project Approach | IBVAP Approach | Judge Impact |
+| Typical Project Approach | KAVACH Approach | Judge Impact |
 |-------------------------|----------------|--------------|
 | "We built a better YOLO model" | "We built a better **security decision process**" | Shows systems thinking |
 | "Our detection is 2% more accurate" | "Our alerts are 70% more **actionable**" | Demonstrates real impact |
@@ -182,4 +182,4 @@ A: "We designed with direct input from operational constraints: low-power edge d
 - [ ] Prepared to discuss limitations and future work honestly
 - [ ] Professional attire and presentation demeanor
 
-**Remember**: Judges don't award points for the most complex technically - they award points for the **most compelling solution to an important problem that they believe can actually work in the real world**. IBVAP delivers on all three fronts.
+**Remember**: Judges don't award points for the most complex technically - they award points for the **most compelling solution to an important problem that they believe can actually work in the real world**. KAVACH delivers on all three fronts.

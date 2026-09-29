@@ -31,7 +31,7 @@ import numpy as np
 from core.config import settings
 from core.timeutil import file_stamp
 
-log = logging.getLogger("ibvap.evidence")
+log = logging.getLogger("kavach.evidence")
 
 #: OpenCV 5 moved the helper onto the class; support both.
 _FOURCC = getattr(cv2, "VideoWriter_fourcc", None) or cv2.VideoWriter.fourcc

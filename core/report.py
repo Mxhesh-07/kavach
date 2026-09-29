@@ -26,7 +26,7 @@ from typing import Any, Optional
 from core.config import settings
 from core.timeutil import fmt_ist
 
-log = logging.getLogger("ibvap.report")
+log = logging.getLogger("kavach.report")
 
 #: Page furniture. A4 landscape, because the event table has eight columns and
 #: portrait forces either a microscopic font or a wrapped, unreadable grid.
@@ -131,7 +131,7 @@ def build_event_log_pdf(
         buffer, pagesize=page,
         leftMargin=_MARGIN * mm, rightMargin=_MARGIN * mm,
         topMargin=_MARGIN * mm, bottomMargin=_MARGIN * mm,
-        title=f"IBVAP {title}", author="IBVAP",
+        title=f"KAVACH {title}", author="KAVACH",
         subject="Border surveillance event log",
     )
 
@@ -144,7 +144,7 @@ def build_event_log_pdf(
     cell = ParagraphStyle("cell", parent=sheet["Normal"], fontSize=7.2, leading=8.8)
 
     story: list = []
-    story.append(Paragraph("IBVAP — Intelligent Border Video Analytics Platform", h1))
+    story.append(Paragraph("KAVACH — Intelligent Border Video Analytics Platform", h1))
     story.append(Paragraph(
         f"{title} &nbsp;·&nbsp; generated {fmt_ist()} &nbsp;·&nbsp; "
         f"all times Indian Standard Time", sub))
@@ -285,7 +285,7 @@ def build_event_log_pdf(
         canvas.setFont("Helvetica", 7)
         canvas.setFillColor(colors.HexColor("#6b7688"))
         canvas.drawString(_MARGIN * mm, 8 * mm,
-                          f"IBVAP {settings.VERSION} · tamper-evident event log · "
+                          f"KAVACH {settings.VERSION} · tamper-evident event log · "
                           f"generated {fmt_ist()}")
         canvas.drawRightString(page[0] - _MARGIN * mm, 8 * mm,
                                f"Page {canvas.getPageNumber()}")

@@ -72,7 +72,7 @@ import numpy as np
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.cv.scene")
+log = logging.getLogger("kavach.cv.scene")
 
 
 @dataclass

@@ -1,14 +1,14 @@
-# IBVAP Live Demonstration Script
+# KAVACH Live Demonstration Script
 ## Showcasing All Three Enhancements Working Together
 
 ### Overview
-This demonstration script showcases how IBVAP's three major enhancements work in concert:
+This demonstration script showcases how KAVACH's three major enhancements work in concert:
 1. **Explainable Border Security AI (EB-SAI)** - Natural language explanations for alerts
 2. **Triple-Layer Tamper-Evident Integrity** - Cryptographic proof of data integrity
 3. **ANPR Stretch Goal** - License plate recognition capability
 
 ### Prerequisites
-- IBVAP system running with at least one camera configured
+- KAVACH system running with at least one camera configured
 - ANPR enabled in configuration (ANPR_ENABLED=true)
 - Sample video feed showing both people and vehicles (can use synthetic generator)
 - Access to API endpoints (default: http://localhost:8000)
@@ -222,7 +222,7 @@ By the end of this demonstration, observers will understand:
 - "Our integrity system isn't just a hash chain - it's a complete evidentiary framework"
 - "The ANPR stretch goal shows we're thinking beyond persons to vehicular threats"
 - "All features use real implementations - no mock data, no placeholder functions"
-- "This transforms IBVAP from a simple alert system into a trusted decision platform"
+- "This transforms KAVACH from a simple alert system into a trusted decision platform"
 
 ### Troubleshooting Guide
 - **No detections**: Check camera feed and synthetic generator fallback
@@ -232,4 +232,4 @@ By the end of this demonstration, observers will understand:
 - **Performance issues**: Adjust TARGET_FPS and BUFFER_SIZE in configuration
 
 ### Conclusion
-This demonstration shows IBVAP as a complete, production-ready border security solution that addresses the core SIH requirements while pushing forward with innovative features that will impress judges and solve real-world problems.
+This demonstration shows KAVACH as a complete, production-ready border security solution that addresses the core SIH requirements while pushing forward with innovative features that will impress judges and solve real-world problems.

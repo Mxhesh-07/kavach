@@ -2,16 +2,16 @@
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
 
-#include "ibvap_native/engine.hpp"
-#include "ibvap_native/scheduler.hpp"
-#include "ibvap_native/tracker.hpp"
-#include "ibvap_native/metrics.hpp"
+#include "kavach_native/engine.hpp"
+#include "kavach_native/scheduler.hpp"
+#include "kavach_native/tracker.hpp"
+#include "kavach_native/metrics.hpp"
 
 namespace py = pybind11;
-using namespace ibvap_native;
+using namespace kavach_native;
 
-PYBIND11_MODULE(ibvap_native, m) {
-    m.doc() = "IBVAP Native C++20 / TensorRT / CUDA Engine";
+PYBIND11_MODULE(kavach_native, m) {
+    m.doc() = "KAVACH Native C++20 / TensorRT / CUDA Engine";
 
     py::class_<Detection>(m, "Detection")
         .def(py::init<>())

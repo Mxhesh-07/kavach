@@ -1,9 +1,9 @@
-#include "ibvap_native/video_source.hpp"
+#include "kavach_native/video_source.hpp"
 #include <iostream>
 #include <thread>
 #include <chrono>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 class FFmpegVideoSource : public NativeVideoSource {
 public:
@@ -74,4 +74,4 @@ std::unique_ptr<NativeVideoSource> create_video_source(const std::string& uri) {
     return src;
 }
 
-} // namespace ibvap_native
+} // namespace kavach_native

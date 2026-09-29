@@ -1,13 +1,13 @@
-# How to Run and Showcase IBVAP
+# How to Run and Showcase KAVACH
 ## Step-by-Step Guide for Live Demonstration
 
-This document shows exactly how a user would run IBVAP with a sample video and showcase all its features during a live demonstration (like at SIH 2026).
+This document shows exactly how a user would run KAVACH with a sample video and showcase all its features during a live demonstration (like at SIH 2026).
 
 ## QUICK START FOR DEMONSTRATION
 ```bash
 # 1. Clone repository (if not already done)
-git clone https://github.com/your-org/ibvap.git
-cd ibvap
+git clone https://github.com/your-org/kavach.git
+cd kavach
 
 # 2. Configure sample video input
 echo "DEFAULT_CAMERA_URL=sample_videos/border_scenario.mp4" > .env
@@ -238,4 +238,4 @@ Exportable certificates available via API for legal use
 ✅ All features work together seamlessly  
 ✅ User can articulate unique value proposition  
 
-**Remember**: You're not just demonstrating features - you're showing how IBVAP transforms from a simple alert system into a trusted decision platform with explainable AI, cryptographic evidence, and complete situational awareness.
+**Remember**: You're not just demonstrating features - you're showing how KAVACH transforms from a simple alert system into a trusted decision platform with explainable AI, cryptographic evidence, and complete situational awareness.

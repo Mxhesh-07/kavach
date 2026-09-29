@@ -1,8 +1,8 @@
-# IBVAP - Intelligent Border Video Analytics Platform
+# KAVACH - Intelligent Border Video Analytics Platform
 ## Final Summary: Transformation from Prototype to Award-Winning Solution
 
 ## 🎯 Overview
-This document summarizes the transformation of IBVAP from a basic prototype to a production-ready, hackathon-winning solution that addresses the SIH 2026 border security challenge with unprecedented innovation and real-world applicability.
+This document summarizes the transformation of KAVACH from a basic prototype to a production-ready, hackathon-winning solution that addresses the SIH 2026 border security challenge with unprecedented innovation and real-world applicability.
 
 ## 🚀 Key Transformations Achieved
 
@@ -71,7 +71,7 @@ This document summarizes the transformation of IBVAP from a basic prototype to a
 
 ## 📊 Quantified Improvements Over Baseline
 
-| Capability | Baseline System | IBVAP Enhanced | Improvement |
+| Capability | Baseline System | KAVACH Enhanced | Improvement |
 |------------|----------------|----------------|-------------|
 | Alert Understanding | Confidence scores only | Natural language explanations | 300%+ faster comprehension |
 | Evidentiary Value | Basic hash chain | Triple-layer integrity | Court-admissible vs questionable |
@@ -84,7 +84,7 @@ This document summarizes the transformation of IBVAP from a basic prototype to a
 ### The 3-Minute Winning Narrative
 > "Current border surveillance overwhelms operators with unexplained alerts that waste critical investigation time. Other AI projects simply add more noise to this problem. 
 > 
-> IBVAP is fundamentally different. We don't just detect border crossings - we **understand** them. Our Explainable AI tells operators precisely WHY an alert was triggered in plain language, enabling instant threat assessment without guesswork.
+> KAVACH is fundamentally different. We don't just detect border crossings - we **understand** them. Our Explainable AI tells operators precisely WHY an alert was triggered in plain language, enabling instant threat assessment without guesswork.
 > 
 > More importantly, we solve the evidentiary problem that keeps AI systems out of courtrooms. Every alert is cryptographically secured through our triple-layer integrity system: local hash chain for immediate tamper evidence, periodic blockchain anchoring for long-term validation, and exportable certificates for legal proceedings.
 > 
@@ -134,17 +134,17 @@ This document summarizes the transformation of IBVAP from a basic prototype to a
 
 ## 🎯 Final Assessment
 
-IBVAP has been successfully transformed from a basic prototype into a **production-ready, innovation-focused solution** that is uniquely positioned to win the SIH 2026 hackathon. The enhancements address:
+KAVACH has been successfully transformed from a basic prototype into a **production-ready, innovation-focused solution** that is uniquely positioned to win the SIH 2026 hackathon. The enhancements address:
 
 1. **Technical Innovation Judging Criteria** - Through genuinely novel approaches to explainable AI, integrity protection, and sensor fusion
 2. **Real-World Impact Judging Criteria** - By solving documented operational problems with field-deployable solutions
 3. **Presentation Quality Judging Criteria** - Through clear, compelling demonstrations of value and innovation
 4. **Engineering Maturity Judging Criteria** - Through production-ready architecture and documentation
 
-**Prediction**: With these enhancements, IBVAP is expected to score in the top 10% of all submissions and has an excellent chance of winning first place or receiving special recognition for technical innovation and real-world applicability.
+**Prediction**: With these enhancements, KAVACH is expected to score in the top 10% of all submissions and has an excellent chance of winning first place or receiving special recognition for technical innovation and real-world applicability.
 
 ---
 
 *Prepared for SIH 2026 Hackathon Submission*  
-*Intelligent Border Video Analytics Platform (IBVAP)*  
+*Intelligent Border Video Analytics Platform (KAVACH)*  
 *Transforming border security through explainable AI and evidentiary integrity*

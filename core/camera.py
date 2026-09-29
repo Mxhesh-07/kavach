@@ -39,7 +39,7 @@ from cv import overlay as ov
 from cv.detector import Detector
 from cv.rules import Alert as RuleAlert
 
-log = logging.getLogger("ibvap.camera")
+log = logging.getLogger("kavach.camera")
 
 _FOURCC = getattr(cv2, "VideoWriter_fourcc", None) or cv2.VideoWriter.fourcc
 

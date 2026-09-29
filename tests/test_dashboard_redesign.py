@@ -1,5 +1,5 @@
 """
-Automated tests for the IBVAP Redesigned Modern Flat Dashboard:
+Automated tests for the KAVACH Redesigned Modern Flat Dashboard:
 - Incident Creation & Lifecycle Management
 - Incident Review Workspace (linked alerts, evidence, status transition)
 - Site Map data integrity (camera positioning, status mapping, HUD data)

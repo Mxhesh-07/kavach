@@ -1,4 +1,4 @@
-# IBVAP Deployment Guide
+# KAVACH Deployment Guide
 
 ## Production Deployment Options
 
@@ -7,17 +7,17 @@
 #### Single Container Deployment
 ```bash
 # Build the production image
-docker build -t ibvap:prod -f Dockerfile.prod .
+docker build -t kavach:prod -f Dockerfile.prod .
 
 # Run the container
 docker run -d \
-  --name ibvap \
+  --name kavach \
   -p 8000:8000 \
   -v $(pwd)/alerts:/app/alerts \
   -v $(pwd)/clips:/app/clips \
   -v $(pwd)/snapshots:/app/snapshots \
   -v $(pwd)/videos:/app/videos \
-  ibvap:prod
+  kavach:prod
 ```
 
 #### Docker Compose Deployment
@@ -25,7 +25,7 @@ docker run -d \
 version: '3.8'
 
 services:
-  ibvap:
+  kavach:
     build:
       context: .
       dockerfile: Dockerfile.prod
@@ -60,8 +60,8 @@ services:
 #### Installation Steps
 ```bash
 # Clone repository
-git clone https://github.com/yourorg/ibvap.git
-cd ibvap
+git clone https://github.com/yourorg/kavach.git
+cd kavach
 
 # Install dependencies
 pip install -r requirements.txt
@@ -82,20 +82,20 @@ python manage.py run
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ibvap
+  name: kavach
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ibvap
+      app: kavach
   template:
     metadata:
       labels:
-        app: ibvap
+        app: kavach
     spec:
       containers:
-      - name: ibvap
-        image: ibvap:latest
+      - name: kavach
+        image: kavach:latest
         ports:
         - containerPort: 8000
         volumeMounts:
@@ -129,15 +129,15 @@ spec:
       volumes:
       - name: storage
         persistentVolumeClaim:
-          claimName: ibvap-storage
+          claimName: kavach-storage
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: ibvap-service
+  name: kavach-service
 spec:
   selector:
-    app: ibvap
+    app: kavach
   ports:
     - protocol: TCP
       port: 80
@@ -148,11 +148,11 @@ spec:
 ## Configuration
 
 ### Environment Variables
-IBVAP uses environment variables for configuration. Create a `.env` file:
+KAVACH uses environment variables for configuration. Create a `.env` file:
 
 ```env
 # Core Settings
-PROJECT_NAME=IBVAP
+PROJECT_NAME=KAVACH
 VERSION=1.0.0
 
 # Database
@@ -248,15 +248,15 @@ Logs are written to stdout/stderr and can be collected by:
 - External ELK/EFK stack
 
 ### Backup Procedures
-1. Stop the IBVAP service
+1. Stop the KAVACH service
 2. Backup the SQLite database (`alerts.db`)
 3. Backup the alerts directory (contains evidence)
 4. Restart the service
 
 ### Updates
-To update IBVAP:
+To update KAVACH:
 1. Pull latest code: `git pull`
-2. Rebuild Docker image: `docker build -t ibvap:latest .`
+2. Rebuild Docker image: `docker build -t kavach:latest .`
 3. Restart containers: `docker-compose up -d`
 
 ## Security Considerations
@@ -331,7 +331,7 @@ To update IBVAP:
 
 ### Contact Information
 For enterprise support, contact: security@yourorg.com
-For community support: https://github.com/yourorg/ibvap/discussions
+For community support: https://github.com/yourorg/kavach/discussions
 
 ## License
-IBVAP is released under the MIT License. See LICENSE file for details.
+KAVACH is released under the MIT License. See LICENSE file for details.

@@ -38,7 +38,7 @@ if TYPE_CHECKING:  # avoid import cycles at module load
     from core.camera import CameraProcessor
     from core.backend import FrameBuffer
 
-log = logging.getLogger("ibvap.renderworker")
+log = logging.getLogger("kavach.renderworker")
 
 
 class RenderWorker:

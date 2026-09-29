@@ -42,7 +42,7 @@ import time
 from dataclasses import dataclass
 from typing import Optional
 
-log = logging.getLogger("ibvap.youtube")
+log = logging.getLogger("kavach.youtube")
 
 try:
     import yt_dlp

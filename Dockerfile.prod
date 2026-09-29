@@ -1,5 +1,5 @@
 # ==============================================================================
-# IBVAP Production Dockerfile — GPU Accelerated Multi-Stage Build
+# KAVACH Production Dockerfile — GPU Accelerated Multi-Stage Build
 # Target Architecture: NVIDIA CUDA 12.x / TensorRT 10.x / C++20 / Ubuntu 22.04
 # Optimized for security, minimal attack surface, non-root execution & low latency
 # ==============================================================================
@@ -102,7 +102,7 @@ USER appuser
 # Expose API and WebUI port
 EXPOSE 8000
 
-# Health check probe against IBVAP health endpoint
+# Health check probe against KAVACH health endpoint
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 

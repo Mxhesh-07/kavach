@@ -1,9 +1,9 @@
-#include "ibvap_native/video_source.hpp"
+#include "kavach_native/video_source.hpp"
 #include <iostream>
 #include <thread>
 #include <chrono>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 class GStreamerVideoSource : public NativeVideoSource {
 public:
@@ -68,4 +68,4 @@ private:
     std::thread capture_thread_;
 };
 
-} // namespace ibvap_native
+} // namespace kavach_native

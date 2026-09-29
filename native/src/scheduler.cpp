@@ -1,7 +1,7 @@
-#include "ibvap_native/scheduler.hpp"
+#include "kavach_native/scheduler.hpp"
 #include <chrono>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 NativeScheduler::NativeScheduler(std::shared_ptr<TensorRTEngine> engine, int max_batch, float max_wait_ms)
     : engine_(engine), max_batch_(max_batch), max_wait_ms_(max_wait_ms) {}
@@ -93,4 +93,4 @@ void NativeScheduler::worker_loop() {
     }
 }
 
-} // namespace ibvap_native
+} // namespace kavach_native

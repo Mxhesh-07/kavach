@@ -20,7 +20,7 @@ from typing import Optional
 import cv2
 import numpy as np
 
-log = logging.getLogger("ibvap.fire_smoke")
+log = logging.getLogger("kavach.fire_smoke")
 log.setLevel(logging.INFO)
 if not log.handlers:
     handler = logging.StreamHandler()

@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # Point the application at a scratch database *before* importing anything that
 # builds an engine at import time.
-_TMP = Path(tempfile.mkdtemp(prefix="ibvap_test_"))
+_TMP = Path(tempfile.mkdtemp(prefix="kavach_test_"))
 os.environ["DATABASE_URL"] = f"sqlite:///{(_TMP / 'test.db').as_posix()}"
 os.environ["EVIDENCE_ENABLED"] = "false"
 os.environ["FACE_ENABLED"] = "false"

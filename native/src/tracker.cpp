@@ -1,7 +1,7 @@
-#include "ibvap_native/tracker.hpp"
+#include "kavach_native/tracker.hpp"
 #include <cmath>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 NativeTracker::NativeTracker(float max_cosine_distance, int max_age, int n_init)
     : max_age_(max_age), n_init_(n_init) {}
@@ -58,4 +58,4 @@ void NativeTracker::reset() {
     next_id_ = 1;
 }
 
-} // namespace ibvap_native
+} // namespace kavach_native

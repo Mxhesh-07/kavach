@@ -1,4 +1,4 @@
-# IBVAP Rollback Procedure
+# KAVACH Rollback Procedure
 
 If the native C++20 / TensorRT engine encounters an unexpected driver exception or hardware mismatch:
 1. Set `DETECTOR_BACKEND=pytorch` in `.env`.

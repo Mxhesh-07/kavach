@@ -1,4 +1,4 @@
-# IBVAP Performance Results & Latency Benchmark Matrix
+# KAVACH Performance Results & Latency Benchmark Matrix
 
 ## 1. Benchmarking Hardware & Environment
 - **GPU**: NVIDIA GeForce RTX 3060 Ti (8GB GDDR6, 4864 CUDA Cores, SM 8.6)

@@ -19,7 +19,7 @@ from cv.rules import Alert as RuleAlert, NightMovementRule, RuleEngine
 from cv.scene import SceneCondition, SceneIlluminationEstimator
 from cv.fire_smoke import FireSmokeDetector
 
-log = logging.getLogger("ibvap.analytics")
+log = logging.getLogger("kavach.analytics")
 
 class LowLightEnhancer:
  

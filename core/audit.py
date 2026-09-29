@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from core.models import AuditLog
 from core.timeutil import utc_iso, fmt_ist
 
-log = logging.getLogger("ibvap.audit")
+log = logging.getLogger("kavach.audit")
 
 
 def record_audit(

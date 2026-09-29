@@ -36,7 +36,7 @@ def test_native_headers_and_sources_inventory():
         "video_source.hpp",
     ]
     for h in headers:
-        header_path = PROJECT / "native" / "include" / "ibvap_native" / h
+        header_path = PROJECT / "native" / "include" / "kavach_native" / h
         assert header_path.exists(), f"Missing header: {h}"
 
     sources = [
@@ -59,4 +59,4 @@ def test_setup_py_compiler_flags():
     """Verify setup.py includes C++20 and optimization flags."""
     setup_content = (PROJECT / "setup.py").read_text(encoding="utf-8")
     assert "c++20" in setup_content.lower() or "std:c++20" in setup_content.lower()
-    assert "military_core" in setup_content or "ibvap_native" in setup_content
+    assert "military_core" in setup_content or "kavach_native" in setup_content

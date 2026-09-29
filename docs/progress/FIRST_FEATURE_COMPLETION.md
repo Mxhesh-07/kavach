@@ -36,7 +36,7 @@ The **Explainable Border Security AI (EB-SAI)** system - the first feature reque
    - Comprehensive documentation in UNIQUE_FEATURES.md and FINAL_SUMMARY.md
 
 ### 📊 Measured Improvements Over Baseline
-| Capability | Baseline System | IBVAP EB-SAI | Improvement |
+| Capability | Baseline System | KAVACH EB-SAI | Improvement |
 |------------|----------------|--------------|-------------|
 | Alert Understanding | Confidence scores only | Natural language explanations | 300%+ faster comprehension |
 | Operator Cognitive Load | High (interpretation required) | Low (instant understanding) | 70%+ reduction |
@@ -52,7 +52,7 @@ The **Explainable Border Security AI (EB-SAI)** system - the first feature reque
 - ✅ **Presentation Quality**: Clear, demonstrable value proposition
 
 **Judging Narrative Ready**:
-> "While other projects simply generate more alerts for overwhelmed security teams to investigate, IBVAP's Explainable AI tells operators exactly WHY an alert was triggered in plain language - enabling instant threat assessment without guesswork. This transforms our system from a notification tool into a true decision support platform that respects both technical innovation and real-world constraints."
+> "While other projects simply generate more alerts for overwhelmed security teams to investigate, KAVACH's Explainable AI tells operators exactly WHY an alert was triggered in plain language - enabling instant threat assessment without guesswork. This transforms our system from a notification tool into a true decision support platform that respects both technical innovation and real-world constraints."
 
 ### 🔧 Files Created/Modified
 - **Modified**: `api/main.py` (core explanation engine + API enhancements)

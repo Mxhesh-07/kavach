@@ -1,8 +1,8 @@
-# IBVAP — Intelligent Border Video Analytics Platform
+# KAVACH — Intelligent Border Video Analytics Platform
 
 **Smart India Hackathon 2026 · Problem Statement 26187 · Ministry of Home Affairs / Sashastra Seema Bal**
 
-IBVAP is an ultra-low latency, mission-critical video analytics platform designed to transform standard perimeter CCTV, thermal, and aerial camera feeds into an AI-powered border surveillance system. Engineered for high-throughput edge deployment, the platform combines a native **C++20 / CUDA / TensorRT** critical data plane with a robust Python micro-service orchestration architecture.
+KAVACH is an ultra-low latency, mission-critical video analytics platform designed to transform standard perimeter CCTV, thermal, and aerial camera feeds into an AI-powered border surveillance system. Engineered for high-throughput edge deployment, the platform combines a native **C++20 / CUDA / TensorRT** critical data plane with a robust Python micro-service orchestration architecture.
 
 The platform provides deterministic sub-3ms inference dispatch, sub-10ms decoded-to-rule evaluation, multi-camera micro-batching, spatial vector geometry rules, facial recognition, automatic number plate recognition (ANPR), and cryptographically sealed SHA-256 tamper-evident event logging — operating entirely on commodity edge compute with zero dependency on proprietary smart cameras or closed appliances.
 
@@ -88,7 +88,7 @@ Any frame source is supported: RTSP / RTSPS (TLS 1.3) feeds, USB webcams, mobile
 
 ```
 +----------------------------------------------------------------------------------------------------+
-|                                    IBVAP Unified Data Plane                                        |
+|                                    KAVACH Unified Data Plane                                        |
 |                                                                                                    |
 |   [Camera Stream 1..8] (RTSP / USB / File)                                                         |
 |             |                                                                                      |
@@ -292,7 +292,7 @@ python verify_system.py
 
 ## (Optional) Native C++20 / CUDA Engine Compilation
 
-By default, IBVAP operates out of the box with the PyTorch/CUDA detector (`cv/detector.py`). For edge servers processing 4–8 concurrent 1080p60 RTSP streams at maximum throughput (400+ FPS), you can optionally compile the native C++20 / CUDA TensorRT engine:
+By default, KAVACH operates out of the box with the PyTorch/CUDA detector (`cv/detector.py`). For edge servers processing 4–8 concurrent 1080p60 RTSP streams at maximum throughput (400+ FPS), you can optionally compile the native C++20 / CUDA TensorRT engine:
 
 ### Prerequisites for Native Compilation
 - NVIDIA CUDA Toolkit 12.x or 11.8 (`nvcc` on PATH)
@@ -320,7 +320,7 @@ python setup.py build_ext --inplace
 
 ## Analytics & Vectorized Rule Engine
 
-Every rule in IBVAP is deterministic, geometric, and decoupled from AI inference:
+Every rule in KAVACH is deterministic, geometric, and decoupled from AI inference:
 
 ```
 [Detection BBoxes] -> [Ground Foot Point Projection] -> [Spatial Rule Engine] -> [Debounce & Hysteresis] -> [Sealed Alert]
@@ -338,7 +338,7 @@ Every rule in IBVAP is deterministic, geometric, and decoupled from AI inference
 
 ## Evidence Security & Cryptographic Integrity
 
-IBVAP implements an immutable audit log for all security events:
+KAVACH implements an immutable audit log for all security events:
 
 1. **SHA-256 Hash Chain**:
    $$H_i = 	ext{SHA-256}\left(	ext{canonical\_json}(	ext{Alert}_i) \parallel H_{i-1}ight)$$
@@ -398,7 +398,7 @@ pytest tests/
 SIH26187/
 ├── native/                           # C++20 / CUDA Native Inference Engine
 │   ├── CMakeLists.txt                # Standalone native build configuration
-│   ├── include/ibvap_native/         # C++20 headers
+│   ├── include/kavach_native/         # C++20 headers
 │   │   ├── bounded_spsc_queue.hpp    # Cacheline-padded lock-free SPSC ring buffer
 │   │   ├── cuda_check.hpp            # CUDA runtime error validation macros
 │   │   ├── engine.hpp                # TensorRT 8.6+/10.x enqueueV3 execution wrapper

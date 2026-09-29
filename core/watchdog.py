@@ -1,5 +1,5 @@
 """
-IBVAP Pipeline Hardware Watchdog & Resilience Coordinator.
+KAVACH Pipeline Hardware Watchdog & Resilience Coordinator.
 Monitors thread heartbeats, detects frozen ingestion/inference loops,
 and orchestrates automated recovery and graceful CPU degradation.
 """

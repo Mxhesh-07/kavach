@@ -48,7 +48,7 @@ from typing import Optional
 from core.config import settings
 from core.timeutil import fmt_ist
 
-log = logging.getLogger("ibvap.notify")
+log = logging.getLogger("kavach.notify")
 
 __all__ = [
     "NotificationChannel",
@@ -196,7 +196,7 @@ def http_post(
     """
     hdrs = {
         "Content-Type": "application/json",
-        "User-Agent": f"IBVAP/{settings.VERSION}",
+        "User-Agent": f"KAVACH/{settings.VERSION}",
     }
     hdrs.update(headers or {})
 
@@ -405,7 +405,7 @@ class NotificationChannel:
                 return
             self._stop.clear()
             self._worker = threading.Thread(
-                target=self._run, name=f"ibvap-{self.name}", daemon=True
+                target=self._run, name=f"kavach-{self.name}", daemon=True
             )
             self._worker.start()
 

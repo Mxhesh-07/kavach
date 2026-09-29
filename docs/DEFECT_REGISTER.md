@@ -1,7 +1,7 @@
-# IBVAP Defect Register & Resolution Ledger (Phase 0 Audit)
+# KAVACH Defect Register & Resolution Ledger (Phase 0 Audit)
 
 ## Summary
-This document tracks all identified software defects, regressions, memory leaks, and synchronization vulnerabilities in the IBVAP repository, along with their resolution status and corresponding regression tests.
+This document tracks all identified software defects, regressions, memory leaks, and synchronization vulnerabilities in the KAVACH repository, along with their resolution status and corresponding regression tests.
 
 ---
 

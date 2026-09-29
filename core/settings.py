@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from core.models import SystemSetting
 from core.timeutil import utc_iso, fmt_ist
 
-log = logging.getLogger("ibvap.settings")
+log = logging.getLogger("kavach.settings")
 
 
 def get_setting(db: Session, key: str, default: Any = None) -> Any:
@@ -95,7 +95,7 @@ def seed_default_settings(db: Session) -> None:
     These are sensible defaults that can be overridden at runtime.
     """
     defaults = [
-        ("system_name", "IBVAP Command Center", "string", "general", "Display name for this installation"),
+        ("system_name", "KAVACH Command Center", "string", "general", "Display name for this installation"),
         ("operator_name", "", "string", "general", "Name of the current duty operator"),
         ("alert_retention_days", "30", "integer", "evidence", "Days to retain alert evidence"),
         ("max_concurrent_streams", "12", "integer", "streaming", "Maximum concurrent MJPEG viewers per camera"),

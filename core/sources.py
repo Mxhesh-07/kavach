@@ -80,7 +80,7 @@ from core.models import (
 )
 from core.timeutil import utc_iso
 
-log = logging.getLogger("ibvap.sources")
+log = logging.getLogger("kavach.sources")
 
 #: Source kinds a camera may have.
 KIND_LIVE = "live"

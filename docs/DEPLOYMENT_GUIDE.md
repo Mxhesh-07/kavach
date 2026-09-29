@@ -1,7 +1,7 @@
-# IBVAP Production Deployment & Operations Guide
+# KAVACH Production Deployment & Operations Guide
 
 ## 1. Overview
-The Intelligent Border Video Analytics Platform (IBVAP) supports three deployment paradigms:
+The Intelligent Border Video Analytics Platform (KAVACH) supports three deployment paradigms:
 1. **Containerized Edge Deployment (Docker Compose + NVIDIA Container Toolkit)**: Best for turnkey deployment on Linux edge appliances, ruggedized military servers, or cloud GPU instances.
 2. **Bare-Metal Linux Deployment (Jetson Orin / x86_64 Ubuntu)**: Best for SWaP-constrained field devices requiring zero container overhead and direct hardware access.
 3. **Development & Operator Mode (Windows 11 / Ubuntu Desktop)**: Rapid local evaluation, demonstration, and algorithm tuning using automated Python fallback and interactive console dashboards.
@@ -33,20 +33,20 @@ docker compose -f docker-compose.prod.yml up -d --build
 docker compose -f docker-compose.prod.yml ps
 
 # Follow container logs
-docker compose -f docker-compose.prod.yml logs -f ibvap-edge
+docker compose -f docker-compose.prod.yml logs -f kavach-edge
 ```
 
 ### 2.3 Container Health Probes
-IBVAP includes an active health check querying `http://localhost:8000/health`:
+KAVACH includes an active health check querying `http://localhost:8000/health`:
 ```bash
-docker inspect --format='{{json .State.Health}}' ibvap-edge-node | jq
+docker inspect --format='{{json .State.Health}}' kavach-edge-node | jq
 ```
 
 ---
 
 ## 3. Interactive Operator Showcase & Live Performance Dashboard
 
-IBVAP includes an interactive terminal UI demonstration tool ([`demo_showcase.py`](file:///E:/Document/Research/SIH26187/SIH26187/demo_showcase.py)) designed for command briefings, client demonstrations, and live hardware stress verification.
+KAVACH includes an interactive terminal UI demonstration tool ([`demo_showcase.py`](file:///E:/Document/Research/SIH26187/SIH26187/demo_showcase.py)) designed for command briefings, client demonstrations, and live hardware stress verification.
 
 ### 3.1 Features Demonstrated Live
 1. **Multi-Camera Feeds**: Simulated concurrent surveillance across 4 border sectors (Sector-Alpha North Perimeter, Sector-Bravo Riverine, Sector-Charlie FOB Gate, Sector-Delta South Ridge).

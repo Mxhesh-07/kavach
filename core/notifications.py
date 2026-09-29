@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from core.models import Notification
 from core.timeutil import utc_iso, fmt_ist
 
-log = logging.getLogger("ibvap.notifications")
+log = logging.getLogger("kavach.notifications")
 
 
 def create_notification(

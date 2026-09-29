@@ -1,5 +1,5 @@
 """
-Face detection and watchlist recognition for IBVAP.
+Face detection and watchlist recognition for KAVACH.
 
 This module uses InsightFace because it ships SCRFD (fast face detection)
 and ArcFace (embedding model) in one package. The implementation is tuned
@@ -29,7 +29,7 @@ import numpy as np
 
 from core.config import settings
 
-log = logging.getLogger("ibvap.face")
+log = logging.getLogger("kavach.face")
 
 try:
     import insightface

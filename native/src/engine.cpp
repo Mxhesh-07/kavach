@@ -1,10 +1,10 @@
-#include "ibvap_native/engine.hpp"
+#include "kavach_native/engine.hpp"
 #include <fstream>
 #include <iostream>
 #include <algorithm>
 #include <chrono>
 
-namespace ibvap_native {
+namespace kavach_native {
 
 TensorRTEngine::TensorRTEngine() = default;
 
@@ -225,4 +225,4 @@ bool TensorRTEngine::infer_batch(
     return true;
 }
 
-} // namespace ibvap_native
+} // namespace kavach_native

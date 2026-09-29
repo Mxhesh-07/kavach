@@ -1,5 +1,5 @@
 """
-IBVAP Dynamic Thermal & Power Throttling Monitor.
+KAVACH Dynamic Thermal & Power Throttling Monitor.
 Monitors GPU temperature, power, and clock states to adaptively adjust stream FPS.
 """
 import time
