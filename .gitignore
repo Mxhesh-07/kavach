@@ -49,6 +49,10 @@ samples/
 Thumbs.db
 desktop.ini
 
+# Office lock files (~$foo.docx appear while a document is open)
+~$*
+.~lock.*
+
 # Test cache
 .pytest_cache/
 .coverage
