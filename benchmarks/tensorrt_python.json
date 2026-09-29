@@ -1,0 +1,28 @@
+{
+  "backend": "tensorrt_python",
+  "precision": "fp16",
+  "streams": 1,
+  "metrics": {
+    "engine_inference_ms": {
+      "p50": 3.05,
+      "p95": 3.82,
+      "p99": 4.45
+    },
+    "gpu_pipeline_ms": {
+      "p50": 6.8,
+      "p95": 8.4,
+      "p99": 10.1
+    },
+    "decoded_to_rule_ms": {
+      "p50": 11.2,
+      "p95": 14.8,
+      "p99": 18.5
+    },
+    "camera_to_alert_ms": {
+      "p50": 62.0,
+      "p95": 110.0,
+      "p99": 165.0
+    }
+  },
+  "fps": 145.0
+}

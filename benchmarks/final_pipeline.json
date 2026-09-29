@@ -1,0 +1,18 @@
+{
+  "architecture": "ibvap_native_c++20_cuda_trt",
+  "multi_stream_4x": {
+    "aggregate_fps": 412.8,
+    "p50_decoded_to_rule_ms": 7.42,
+    "p95_decoded_to_rule_ms": 9.15,
+    "p99_decoded_to_rule_ms": 13.8,
+    "camera_to_alert_p95_ms": 72.4,
+    "gpu_vram_mb": 1420,
+    "gpu_utilization_pct": 68
+  },
+  "targets_met": {
+    "measurement_1_engine": true,
+    "measurement_2_gpu_pipe": true,
+    "measurement_3_decoded_to_rule": true,
+    "measurement_4_camera_to_alert": true
+  }
+}

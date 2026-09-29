@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Logs
+*.log
+logs/
+
+# Evidence and media (large files)
+clips/
+alerts/snapshots/
+videos/
+samples/
+
+# Models (large files)
+*.pt
+*.onnx
+*.engine
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Alembic
+alembic/versions/*.pyc

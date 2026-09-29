@@ -1,0 +1,83 @@
+# IBVAP — Intelligent Border Video Analytics Platform
+# ---------------------------------------------------------------------------
+# Core runtime. Install with:
+#     pip install -r requirements.txt
+#
+# GPU NOTE ------------------------------------------------------------------
+# The default PyPI `torch` is a CPU-only build. On a machine with an NVIDIA
+# GPU install the CUDA build FIRST, or inference silently runs on the CPU at
+# roughly a third of the speed:
+#
+#     pip install --index-url https://download.pytorch.org/whl/cu126 \
+#                 torch torchvision
+#
+# torchvision must come from the same CUDA index as torch — a CPU torchvision
+# paired with a CUDA torch fails at NMS with "torchvision::nms not implemented
+# for CUDA". IBVAP detects that at start-up and falls back to CPU rather than
+# crashing, and /api/system/info reports which device is really in use.
+# ---------------------------------------------------------------------------
+
+# --- Detection & tracking ---------------------------------------------------
+ultralytics>=8.3.0,<9          # YOLO11 + ByteTrack
+torch>=2.2                     # installed via the CUDA index above for GPU
+torchvision>=0.17
+
+# --- Computer vision & geometry ---------------------------------------------
+opencv-python>=4.10.0          # capture, encode, overlay, CLAHE
+numpy>=1.26
+shapely>=2.0.0                 # zone/polygon geometry for the rules engine
+lap>=0.5.12                    # ByteTrack's linear assignment solver
+
+# --- Web layer ---------------------------------------------------------------
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0      # [standard] provides the websockets implementation
+python-multipart>=0.0.9        # multipart form parsing for uploads
+reportlab>=4.0.0             # printable PDF export of the event log
+pydantic-settings>=2.5.0
+
+# --- Persistence -------------------------------------------------------------
+sqlalchemy>=2.0.0              # SQLite at the edge, PostgreSQL at HQ
+
+# --- Monitoring --------------------------------------------------------------
+psutil>=5.9                    # CPU/RAM sampling for benchmark.py and system info
+
+# --- Notifications (alarm siren / SMS escalation) ----------------------------
+requests>=2.31.0               # alarm webhook + MSG91 SMS gateway
+twilio>=8.0.0                  # default SMS provider
+#
+# Both degrade gracefully, like the CV subsystems above. `twilio` is imported
+# behind a guard: without it /api/system/sms/status reports
+# twilio_installed=false and MSG91 (plain HTTP, no extra dependency) is used
+# instead. `requests` has a urllib fallback, so the alarm webhook works even on
+# a minimal install.
+#
+# RPi.GPIO is deliberately NOT listed: it only installs on a Raspberry Pi and
+# would break `pip install -r requirements.txt` everywhere else. Install it on
+# the single-board host only if you are driving a relay directly:
+#
+#     pip install RPi.GPIO
+#
+# Without it, a configured ALARM_GPIO_PIN logs one warning and the alarm falls
+# back to its webhook sink.
+
+# --- Optional subsystems -----------------------------------------------------
+# Both degrade gracefully: if the import fails the feature reports itself as
+# unavailable in /api/system/info and the surveillance pipeline is unaffected.
+insightface>=0.7.3             # SCRFD face detection + ArcFace embeddings
+onnxruntime>=1.19.0            # InsightFace runtime — see the GPU note below
+easyocr>=1.7.0                 # ANPR optical character recognition
+yt-dlp>=2024.1.1               # resolves YouTube / YouTube Live to a stream URL
+
+# FACE-STAGE GPU NOTE --------------------------------------------------------
+# `onnxruntime` above is the CPU build, and InsightFace will silently use it
+# even on a CUDA machine — /api/system/info reports the providers actually in
+# use, and the face stage costs ~19 ms/frame on CPU versus a few ms on GPU.
+# On an NVIDIA host, replace it:
+#
+#     pip uninstall -y onnxruntime && pip install onnxruntime-gpu
+#
+# The platform runs correctly either way; this is throughput, not correctness.
+# ---------------------------------------------------------------------------
+
+# --- Testing (not required to run the platform) ------------------------------
+# pip install pytest httpx

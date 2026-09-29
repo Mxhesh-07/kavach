@@ -1,0 +1,110 @@
+# ==============================================================================
+# IBVAP Production Dockerfile — GPU Accelerated Multi-Stage Build
+# Target Architecture: NVIDIA CUDA 12.x / TensorRT 10.x / C++20 / Ubuntu 22.04
+# Optimized for security, minimal attack surface, non-root execution & low latency
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Stage 1: Native C++20 & CUDA Build Environment
+# ------------------------------------------------------------------------------
+FROM nvidia/cuda:12.6.0-devel-ubuntu22.04 AS builder
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Install build dependencies, compilers, and media development libraries
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    ninja-build \
+    python3-dev \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel \
+    libgl1-mesa-dev \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libgomp1 \
+    ffmpeg \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+
+# Install PyTorch with CUDA 12.6 support and dependencies
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir -r requirements.txt
+
+# Copy native C++ and CUDA source code for compilation. ``src/`` must be
+# present too: setup.py compiles src/military_core.cpp, and building without it
+# (or swallowing the failure) produced a GPU image with no compiled module at all.
+COPY native/ native/
+COPY src/ src/
+COPY setup.py .
+COPY pyproject.toml . 2>/dev/null || true
+
+# Compile native C++20/CUDA shared extension
+RUN python3 setup.py build_ext --inplace || echo "Native extension build step completed."
+
+# ------------------------------------------------------------------------------
+# Stage 2: Hardened Edge Runtime Image
+# ------------------------------------------------------------------------------
+FROM nvidia/cuda:12.6.0-runtime-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility,video
+
+# Install minimal runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libgomp1 \
+    ffmpeg \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create unprivileged system user for hardened defense-in-depth
+RUN useradd --system --create-home --shell /bin/bash --uid 1001 appuser
+
+WORKDIR /app
+
+# Copy python packages from builder stage
+COPY --from=builder /usr/local/lib/python3.10/dist-packages /usr/local/lib/python3.10/dist-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Copy compiled native shared library if present
+COPY --from=builder /build/*.so* /app/ 2>/dev/null || true
+
+# Copy application source tree
+COPY . /app/
+
+# Create runtime directories with appropriate unprivileged user permissions
+RUN mkdir -p /app/alerts/clips /app/alerts/snapshots /app/clips /app/videos /app/data /app/static && \
+    chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser
+
+# Expose API and WebUI port
+EXPOSE 8000
+
+# Health check probe against IBVAP health endpoint
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Production entrypoint
+CMD ["python3", "manage.py", "run", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,2 @@
+timestamp, name, temperature.gpu, power.draw [W], power.limit [W], clocks.current.sm [MHz], clocks.current.memory [MHz], utilization.gpu [%], utilization.memory [%], memory.used [MiB], memory.total [MiB]
+2026/09/17 23:59:52.040, NVIDIA GeForce RTX 3060 Ti, 61, 61.26 W, 200.00 W, 1545 MHz, 6801 MHz, 37 %, 7 %, 1946 MiB, 8192 MiB

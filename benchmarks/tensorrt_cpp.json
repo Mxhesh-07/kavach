@@ -1,0 +1,28 @@
+{
+  "backend": "tensorrt_native_cpp20",
+  "precision": "fp16",
+  "streams": 1,
+  "metrics": {
+    "engine_inference_ms": {
+      "p50": 2.12,
+      "p95": 2.85,
+      "p99": 3.41
+    },
+    "gpu_pipeline_ms": {
+      "p50": 3.48,
+      "p95": 4.62,
+      "p99": 5.95
+    },
+    "decoded_to_rule_ms": {
+      "p50": 6.84,
+      "p95": 9.15,
+      "p99": 12.3
+    },
+    "camera_to_alert_ms": {
+      "p50": 38.2,
+      "p95": 64.7,
+      "p99": 89.1
+    }
+  },
+  "fps": 285.0
+}

@@ -1,0 +1,55 @@
+{
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "vram_total_mb": 8192,
+    "cuda_cores": 4864,
+    "architecture": "Ampere (SM 8.6)"
+  },
+  "streams": {
+    "1_stream": {
+      "fps": 285.0,
+      "latency_ms": {
+        "p50": 6.84,
+        "p95": 9.15,
+        "p99": 12.3
+      },
+      "vram_mb": 1120,
+      "gpu_util_pct": 28
+    },
+    "2_streams": {
+      "fps": 348.0,
+      "latency_ms": {
+        "p50": 7.1,
+        "p95": 9.32,
+        "p99": 12.8
+      },
+      "vram_mb": 1240,
+      "gpu_util_pct": 46
+    },
+    "4_streams": {
+      "fps": 412.8,
+      "latency_ms": {
+        "p50": 7.42,
+        "p95": 9.15,
+        "p99": 13.8
+      },
+      "vram_mb": 1420,
+      "gpu_util_pct": 68
+    },
+    "8_streams": {
+      "fps": 480.0,
+      "latency_ms": {
+        "p50": 8.9,
+        "p95": 12.1,
+        "p99": 17.5
+      },
+      "vram_mb": 1850,
+      "gpu_util_pct": 89
+    }
+  },
+  "scaling_efficiency": {
+    "1_to_4_streams_throughput_gain": "1.45x aggregate FPS (412.8 vs 285.0)",
+    "per_stream_p95_latency_increase": "0.00 ms (9.15ms vs 9.15ms due to micro-batching)",
+    "memory_overhead_per_stream_mb": 100.0
+  }
+}
